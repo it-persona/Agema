@@ -1,0 +1,8 @@
+# Ignored folders
+# ------------------
+.idea/
+
+# Ignored files
+# ----------------
+*~
+*tar.gz
