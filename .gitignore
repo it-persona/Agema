@@ -1,8 +1,8 @@
 # Ignored folders
 # ------------------
 .idea/
+img/.buttons/
 
 # Ignored files
 # ----------------
 *~
-*tar.gz
