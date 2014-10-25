@@ -1,7 +1,7 @@
 Company description
 ======================
 
-AGEMA OPTICS it is company based in USA (founder Eduard Trygubov (Ukraine). This company manufactures optical equipments of hight quality, digital hardware devices that are controlled and synchronized with the PC.
+AGEMA OPTICS it is company founded by Eduard Trygubov (Ukraine) and based in USA. This company manufactures optical equipments of hight quality, digital hardware devices that are controlled and synchronized with the PC.
 
 Repository description
 ==========================
