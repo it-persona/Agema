@@ -180,7 +180,6 @@ input[type=radio]#button-5:checked~.arrows#arrow-4 { /*left: -73px;*/ position: 
     top: 0;
     left: 0;
     width: 260px;
-    /*font-family: 'Yanone Kaffeesatz';*/
     font: 13px, Tahoma, Verdana, Arial;
     z-index: 1000;
 }
