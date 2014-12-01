@@ -268,7 +268,7 @@ th {
 }
 .glyphicon {
   position: relative;
-  top: 1px;
+  top: 3px;
   display: inline-block;
   font-family: 'Glyphicons Halflings';
   font-style: normal;
@@ -3901,8 +3901,8 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   margin-top: 8px;
   margin-right: 15px;
   margin-bottom: 8px;
-  background-color: transparent;
-  background-image: none;
+  /*background-color: transparent;*/
+  /*background-image: none;*/
   border: 1px solid transparent;
   border-radius: 4px;
 }
@@ -4129,8 +4129,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .navbar-default .navbar-toggle {
   border-color: #ddd;
 }
-.navbar-default .navbar-toggle:hover,
-.navbar-default .navbar-toggle:focus {
+.navbar-default .navbar-toggle:hover {
   background-color: #ddd;
 }
 .navbar-default .navbar-toggle .icon-bar {
@@ -4556,7 +4555,7 @@ a.list-group-item.active > .badge,
 }
 .jumbotron p {
   margin-bottom: 15px;
-  font-size: 21px;
+  /*font-size: 21px;*/
   font-weight: 200;
 }
 .jumbotron > hr {
@@ -4584,7 +4583,7 @@ a.list-group-item.active > .badge,
 }
 .thumbnail {
   display: block;
-  padding: 4px;
+  /*padding: 4px;*/
   margin-bottom: 20px;
   line-height: 1.42857143;
   background-color: #fff;

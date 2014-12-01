@@ -40,18 +40,18 @@ h1, h2 , h3, h4 {
 }
 
 h2 {
-    font: 12px Verdana, Arial, Helvetica, sans-serif;
+    /*font: 12px Verdana, Arial, Helvetica, sans-serif;*/
     margin: 10px 10px;
 }
 
 h3 {
-    font: 12px Verdana, Arial, Helvetica, sans-serif;
+/*font: 12px Verdana, Arial, Helvetica, sans-serif;*/
     margin: 10px 10px;
 }
 
 h4 {
-    font-family: Verdana, Arial, Helvetica, sans-serif;
-    font-size: 14px;
+    /*font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 14px;*/
 }
 
 button {
@@ -64,8 +64,8 @@ button {
 }
 
 .content-link {
-    font-family: Verdana, Arial, Helvetica, sans-serif;
-    font-size: 12px;
+    /*font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 12px;*/
     color: #14A0B9;
     margin: 0 5px;
 }
@@ -95,8 +95,8 @@ button {
 
 #contacts {
     color: #808080;
-    font: Tahoma, Verdana, Arial;
-    font-size: 14px;
+    /*font: Tahoma, Verdana, Arial;
+    font-size: 14px;*/
     text-align: left;
     max-width: 205px;
 }
@@ -104,7 +104,7 @@ button {
 #top-menu {
     margin: 0 0 20px 23px;
     padding: 0;
-    font: 12px Tahoma, Verdana, Arial;
+    /*font: 12px Tahoma, Verdana, Arial;*/
     min-width: 70%;
 }
 
@@ -153,7 +153,7 @@ button {
     background-color: #0057ad;
     border-radius: 5px;
     padding: 9px 6px;
-    font: 12px Tahoma, Verdana, Arial;
+/*    font: 12px Tahoma, Verdana, Arial;*/
     font-weight: bold;
     border: 3px solid #FFFFFF;
     margin: 15px auto 0;
@@ -190,7 +190,7 @@ button {
     margin: 0 0 0 10px;
     padding: 0 10px 0 10px;
     color: #fff;
-    font: 11px Tahoma;
+/*    font: 11px Tahoma;*/
     max-height: 28px;
     max-width: 100%;
 }
@@ -229,7 +229,7 @@ max-width: 295px;
     border: none;
     cursor: pointer;
     color: white;
-    font: 13px Tahoma, Verdana, Arial;
+    /*font: 13px Tahoma, Verdana, Arial;*/
     font-weight: bold;
     text-align: center;
     background: #F5F5F5 url("../img/.buttons/big-btn-normal.png") 1px 1px no-repeat;
@@ -250,7 +250,7 @@ margin: 0 100px;
 border: none;
 cursor: pointer;
 color: white;
-font: 13px Tahoma, Verdana, Arial;
+/*font: 13px Tahoma, Verdana, Arial;*/
 font-weight: bold;
 text-align: center;
 background: #F5F5F5 url("../img/.buttons/big-btn-normal.png") 1px 1px no-repeat;
@@ -273,7 +273,7 @@ border-radius: 10px;
 margin: 0 0 0 10px;
 padding: 0 0 0 10px;
 color: #fff;
-font: 11px Tahoma, Verdana, Arial;
+/*font: 11px Tahoma, Verdana, Arial;*/
 width: 275px;
 }
 
@@ -292,7 +292,7 @@ border: 1px solid red;
 border-radius: 5px;
 margin: 10px auto;
 padding: 5px 5px;
-font: 13px Tahoma, Verdana, Arial;
+/*font: 13px Tahoma, Verdana, Arial;*/
 width: 400px;
 }
 
@@ -302,13 +302,13 @@ border: 1px solid green;
 border-radius: 5px;
 margin: 10px auto;
 padding: 5px 5px;
-font: 13px Tahoma, Verdana, Arial;
+/*font: 13px Tahoma, Verdana, Arial;*/
 width: 400px;
 }
 
 #reg_table {
 margin: 0 auto;
-font: 13px Tahoma, Verdana, Arial;
+/*font: 13px Tahoma, Verdana, Arial;*/
 }
 
 #reg_table td {
@@ -366,7 +366,7 @@ vertical-align: middle;
 
 .button-caption {
     color: #fff;
-    font: 13px Tahoma, Verdana, Arial;
+    /*font: 13px Tahoma, Verdana, Arial;*/
     padding: 10px 19px;
     position: absolute;
 }
@@ -387,22 +387,22 @@ vertical-align: middle;
 
 .window_small h1 {
     margin: 10px 10px;
-    font: 18px Verdana;
+    /*font: 18px Verdana;*/
     font-weight: bold;
 }
 
 .window_small p {
     margin: 10px 10px;
     text-align: justify;
-    font: 13px Tahoma, Verdana, Arial;
+    /*font: 13px Tahoma, Verdana, Arial;*/
 }
 
-.wnd_name_small h1, h2, h3, h4 {
-    background-color: #CCCCCC;
-    border-bottom: 1px solid #DFDFDF;
-    padding: 7px 10px;
-    border-radius: 4px 4px 0 0;
-}
+/*.wnd_name_small h1, h2, h3, h4 {*/
+    /*background-color: #CCCCCC;*/
+    /*border-bottom: 1px solid #DFDFDF;*/
+    /*padding: 7px 10px;*/
+    /*border-radius: 4px 4px 0 0;*/
+/*}*/
 
 /**/
 
@@ -421,14 +421,19 @@ vertical-align: middle;
 
 .window_home-slider h1 {
     margin: 10px 10px;
-    font: 18px Tahoma, Verdana, Arial;
+    /*font: 18px Tahoma, Verdana, Arial;*/
     font-weight: bold;
 }
 
 .window_home-slider p {
     margin: 10px 10px;
     text-align: justify;
-    font: 13px Tahoma, Verdana, Arial;
+    /*font: 13px Tahoma, Verdana, Arial;*/
+}mall h1, h2, h3, h4 {
+    background-color: #CCCCCC;
+    border-bottom: 1px solid #DFDFDF;
+    padding: 7px 10px;
+    border-radius: 4px 4px 0 0;
 }
 
 .wnd_name_home-slider h1, h2, h3, h4 {
@@ -451,14 +456,14 @@ vertical-align: middle;
 
 .window_big h1 {
     margin: 10px 10px;
-    font: 18px Verdana, Tahoma, Arial;
+    /*font: 18px Verdana, Tahoma, Arial;*/
     font-weight: bold;
 }
 
 .window_big p {
     margin: 10px 10px;
     text-align: justify;
-    font: 14px Tahoma, Verdana, Arial;
+    /*font: 14px Tahoma, Verdana, Arial;*/
 }
 
 .wnd_name_big h4 {
@@ -488,7 +493,7 @@ vertical-align: middle;
 }
 /* Styles for table */
 .window_big table {
-    font: 12px Georgia, Arial, Helvetica, sans-serif;
+    /*font: 12px Georgia, Arial, Helvetica, sans-serif;*/
 }
 
 #prj_name {
@@ -557,7 +562,7 @@ vertical-align: middle;
 }
 
 .more-link {
-    font: 12px Tahoma, Verdana, Arial;
+    /*font: 12px Tahoma, Verdana, Arial;*/
 }
 
 .more-link-wrapper {
@@ -586,7 +591,7 @@ vertical-align: middle;
     border-bottom: none;
     margin: 7px 49% 0 0; /* uncomment this line for manual set up margin of block */
     color: #4D4D4D; /*#2E2E2E;/* old color set #808080;*/
-    font: 15px Tahoma, Verdana, Arial;
+    /*font: 15px Tahoma, Verdana, Arial;*/
     font-weight: bold;
     float: right; /* automatic align this block in absolute left or right current element position of page  */
 }
@@ -603,7 +608,7 @@ vertical-align: middle;
     background: none;
     border: none;
     color: #808080;
-    font: 11px Tahoma, Verdana, Arial;
+    /*font: 11px Tahoma, Verdana, Arial;*/
     font-weight: normal;
 }
 
@@ -649,7 +654,7 @@ vertical-align: middle;
     float: left;
     /*border-right: 1px solid #4D4D4D;*/
     padding: 8px 5px 5px 5px;
-    font: 14px Tahoma, Verdana, Arial;
+    /*font: 14px Tahoma, Verdana, Arial;*/
     min-height: 250px; /*temporary value*/
     width: 40%;
 }
@@ -708,7 +713,7 @@ vertical-align: middle;
 }
 
 .left-magnetize {
-    font: 15px Tahoma, Verdana, Arial;
+    /*font: 15px Tahoma, Verdana, Arial;*/
     text-align: center;
 }
 /* Styles for graphics images on single item description page*/
