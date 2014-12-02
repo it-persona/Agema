@@ -1,30 +1,31 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>AGEMA OPTICS :: Homepage</title>
+        <title>Agema optics - Homepage</title>
             <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
             <meta name="description" content="Agema optics this is professional technologies and solutions in creating of telescopes and other optical devices" />
             <meta name="keywords" content="optical devices, telescopes, optics, technologies, create optical solutions" />
-            <!--<link rel="stylesheet" type="text/css" href="css/style.css" />-->
             <!-- Include styles for Font-Awesome-Icons -->
             <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
             <link rel="stylesheet" type="text/css" href="css/default.css">
-            <!--<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" />-->
-            <!--<link rel="stylesheet" type="text/css" href="css/font-awesome.css" />-->
-            <!-- Include scripts -->
+            <link rel="stylesheet" type="text/css" href="css/font-awesome.css" />
+            <!-- Include Java scripts -->
         <script src="/js/jquery-1.11.1.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
     </head>
     <body>
             <nav id="menu" class="navbar navbar-default navbar-fixed-top" role="navigation">
                 <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#collapsed-nav-menu">
+                    <a class="navbar-brand" href="/" title="Agema optics &mdash; deep space in your eyes"></a>
+                    <button type="button" class="navbar-toggle" title="Show menu" data-toggle="collapse" data-target="#collapsed-nav-menu" onclick="toggleBtnControlPanel()">
                         <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="/" title="Agema optics &mdash; deep space in your eyes"></a>
+                    <button type="button" class="btn btn-primary navbar-toggle navbar-btn" title="Log In">
+                        <span class="glyphicon glyphicon-log-in"></span>
+                    </button>
                 </div>
                 <div class="collapse navbar-collapse" id="collapsed-nav-menu">
                     <ul class="nav navbar-nav navbar-left">
@@ -52,11 +53,76 @@
                             <a href="#">Contact us</a>
                         </li>
                     </ul>
-                    <button name="btn-control-panel" type="button" class="btn btn-primary navbar-btn" title="Control panel">
-                        <span class="glyphicon glyphicon-cog"></span>
+                    <button id="btn-control-panel" title="Log In" name="btn-control-panel" type="button" class="btn btn-primary navbar-btn" data-toggle="modal" data-target="#loginDialog">
+                        <span class="glyphicon glyphicon-log-in"></span>
                     </button>
                 </div>
+                <script>
+                    function toggleBtnControlPanel(){
+                        $('#btn-control-panel').toggle('fast');
+                    }
+                </script>
             </nav>
+            <!-- Modal: loginDialog -->
+            <div class="modal fade" id="loginDialog" tabindex="-1" role="dialog" aria-labelledby="loginDialogLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">
+                                <span aria-hidden="true">&times;</span>
+                                <span class="sr-only">Close</span>
+                            </button>
+                            <h4 class="modal-title" id="loginDialogLabel">Log in</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form class="form-horizontal" role="form">
+                                <div class="login-inputs-wrapper">
+                                    <!-- Add this classes to DIV for visualize validation [ has-success has-feedback ]-->
+                                    <div class="form-group has-success has-feedback">
+                                        <!--<label for="inputPassword3" class="col-sm-2 control-label">Password</label>-->
+                                        <div class="input-group col-sm-12">
+                                            <span class="input-group-addon">
+                                                <span class="glyphicon glyphicon-envelope"></span>
+                                            </span>
+                                            <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+                                            <span class="glyphicon glyphicon-ok form-control-feedback"></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <!--<label for="inputPassword3" class="col-sm-2 control-label">Password</label>-->
+                                        <div class="input-group col-sm-12">
+                                            <span class="input-group-addon">
+                                                <span class="glyphicon glyphicon-lock"></span>
+                                            </span>
+                                            <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+                                            <span class="glyphicon glyphicon-ok form-control-feedback hidden"></span>
+                                        </div>
+                                    </div>
+                            </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-10">
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox"> Remember me
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-10">
+                                        <button type="submit" class="btn btn-success">Sign in</button>
+                                        <button type="submit" class="btn btn-primary">Restore password</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <!--<div class="modal-footer">-->
+                            <!--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->
+                            <!--<button type="button" class="btn btn-primary">Save changes</button>-->
+                        <!--</div>-->
+                    </div>
+                </div>
+            </div>
             <div id="site-content">
                 <div class="jumbotron area">
                     <h1>Welcome!</h1>
@@ -72,7 +138,7 @@
                         shaft brake,  special cell with fine lens adjustment, aluminum tube equipped with knife-type diaphragms,  machined from solid tube rings and dovetail plate,
                         and <strong> 40 mm </strong> format field corrector that gives diffraction quality image.
                     </p>
-                    <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
+                    <p><a class="btn btn-success btn-lg" href="#" role="button">Learn more</a></p>
                 </div>
                 <div class="panel panel-default">
                 <!-- Default panel contents -->
