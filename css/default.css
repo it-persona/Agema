@@ -114,7 +114,11 @@ ul.nav.navbar-nav.navbar-left li.active a:hover {
 }
 
 .thumbnails-wrapper {
-    margin: 10px;
+    margin: 30px 30px 10px 30px;
+}
+
+.thumbnail {
+    background-color: #F5F5F5;
 }
 
 a.btn.btn-primary {
