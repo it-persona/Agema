@@ -11,11 +11,14 @@ use Symfony\Component\HttpFoundation\Response;
 class IndexController extends Controller
 {
     /**
+     * @Template()
      * @Route("/")
      * @Method("GET")
      */
     public function indexAction()
     {
-        return new Response('<h1>Hello world!</h1>');
+        $message = 'Hello world!';
+
+        return array('msg' => $message);
     }
 }
