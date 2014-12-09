@@ -17,8 +17,12 @@ class IndexController extends Controller
      */
     public function indexAction()
     {
-        $message = 'Hello world!';
+        // TODO: Add entity for site & page options. Return options properties array from database.
+        $siteName = 'Agema optics';
+        $pageTitle = 'Homepage';
 
-        return array('msg' => $message);
+        return array('sitename'    => $siteName,
+                     'pagetitle'   => $pageTitle
+        );
     }
 }
