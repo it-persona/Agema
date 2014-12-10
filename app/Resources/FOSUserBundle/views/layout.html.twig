@@ -14,7 +14,7 @@
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
 </head>
 <body>
-
+<!-- App source -->
 <div>
     {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
         {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
@@ -33,6 +33,7 @@
         </div>
     {% endfor %}
 {% endfor %}
+
 {% block fos_user_content %}{% endblock fos_user_content %}
 </body>
 </html>

@@ -1,11 +1,12 @@
-{% extends '@PanchAgema/FOSUserBundle/layout.html.twig' %}
+{#{% extends '@PanchAgema/FOSUserBundle/layout.html.twig' %}#}
+{% extends '::base.html.twig' %}
 
 {% block title %}Homepage{% endblock %}
 
 {% block nav_menu %}
     <nav id="menu" class="navbar navbar-default navbar-fixed-top" role="navigation">
         <div class="navbar-header">
-            <a class="navbar-brand" href="/" title="Agema optics &mdash; deep space in your eyes"></a>
+            <a class="navbar-brand" href="{{ path('panch_agema_agema_index_index') }}" title="Agema optics &mdash; deep space in your eyes"></a>
             <button type="button" class="navbar-toggle" title="Show menu" data-toggle="collapse" data-target="#collapsed-nav-menu" onclick="toggleBtnControlPanel()">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
@@ -19,22 +20,22 @@
         <div class="collapse navbar-collapse" id="collapsed-nav-menu">
             <ul class="nav navbar-nav navbar-left">
                 <li class="active">
-                    <a href="#">Homepage</a>
+                    <a href="{{ path('panch_agema_agema_index_index') }}">Homepage</a>
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-left">
                 <li>
-                    <a href="#">Telescopes</a>
+                    <a href="{{ path('panch_agema_agema_index_index') }}">Telescopes</a>
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-left">
                 <li>
-                    <a href="#">Accessories</a>
+                    <a href="{{ path('panch_agema_agema_index_index') }}">Accessories</a>
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-left">
                 <li>
-                    <a href="#">Where to bay</a>
+                    <a href="{{ path('panch_agema_agema_index_index') }}">Where to bay</a>
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-left">
@@ -44,12 +45,17 @@
             </ul>
             <ul class="nav navbar-nav navbar-left">
                 <li>
-                    <a href="#">About</a>
+                    <a href="{{ path('panch_agema_agema_index_index') }}">About</a>
                 </li>
             </ul>
-            <button id="btn-control-panel" title="Sign in" name="btn-control-panel" type="button" class="btn btn-primary navbar-btn" data-toggle="modal" data-target="#loginDialog">
-                <span class="glyphicon glyphicon-log-in"></span>
-            </button>
+            <!-- Need refactoring -->
+            <a href="{{ path('fos_user_security_login') }}">
+                <button id="btn-control-panel" title="Sign in" name="btn-control-panel" type="button" class="btn btn-primary navbar-btn" data-toggle="modal" data-target="#loginDialog">
+                    <span class="glyphicon glyphicon-log-in"></span>
+                </button>
+            </a>
+            {% include '@PanchAgema/FOSUserBundle/layout.html.twig' %}
+            {% block fos_user_content %}<p></p>{% endblock %}
         </div>
         <script>
             function toggleBtnControlPanel(){
