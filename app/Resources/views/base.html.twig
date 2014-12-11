@@ -3,7 +3,6 @@
     <head>
         <meta charset="UTF-8" />
         <title>{% block title %}Welcome!{% endblock %}</title>
-        {#{% block stylesheets %}{% endblock %}#}
         {% block stylesheets %}
             <link href="{{ asset('bundles/panchagema/css/bootstrap.css') }}" type="text/css" rel="stylesheet" />
             <link href="{{ asset('bundles/panchagema/css/default.css') }}" type="text/css" rel="stylesheet" />
@@ -16,134 +15,7 @@
     </head>
     <body>
         {% block body %}
-            {#{% include '@PanchAgema/FOSUserBundle/layout.html.twig' %}#}
-            {#{% block fos_user_content %}{% endblock %}#}
             {% block nav_menu %}{% endblock %}
-            {#<nav id="menu" class="navbar navbar-default navbar-fixed-top" role="navigation">#}
-                {#<div class="navbar-header">#}
-                    {#<a class="navbar-brand" href="/" title="Agema optics &mdash; deep space in your eyes"></a>#}
-                    {#<button type="button" class="navbar-toggle" title="Show menu" data-toggle="collapse" data-target="#collapsed-nav-menu" onclick="toggleBtnControlPanel()">#}
-                        {#<span class="sr-only">Toggle navigation</span>#}
-                        {#<span class="icon-bar"></span>#}
-                        {#<span class="icon-bar"></span>#}
-                        {#<span class="icon-bar"></span>#}
-                    {#</button>#}
-                    {#<button type="button" class="btn btn-primary navbar-toggle navbar-btn" title="Sign in">#}
-                        {#<span class="glyphicon glyphicon-log-in"></span>#}
-                    {#</button>#}
-                {#</div>#}
-                {#<div class="collapse navbar-collapse" id="collapsed-nav-menu">#}
-                    {#<ul class="nav navbar-nav navbar-left">#}
-                        {#<li class="active">#}
-                            {#<a href="#">Homepage</a>#}
-                        {#</li>#}
-                    {#</ul>#}
-                    {#<ul class="nav navbar-nav navbar-left">#}
-                        {#<li>#}
-                            {#<a href="#">Telescopes</a>#}
-                        {#</li>#}
-                    {#</ul>#}
-                    {#<ul class="nav navbar-nav navbar-left">#}
-                        {#<li>#}
-                            {#<a href="#">Accessories</a>#}
-                        {#</li>#}
-                    {#</ul>#}
-                    {#<ul class="nav navbar-nav navbar-left">#}
-                        {#<li>#}
-                            {#<a href="#">Where to bay</a>#}
-                        {#</li>#}
-                    {#</ul>#}
-                    {#<ul class="nav navbar-nav navbar-left">#}
-                        {#<li>#}
-                            {#<a href="#">Contact us</a>#}
-                        {#</li>#}
-                    {#</ul>#}
-                    {#<ul class="nav navbar-nav navbar-left">#}
-                        {#<li>#}
-                            {#<a href="#">About</a>#}
-                        {#</li>#}
-                    {#</ul>#}
-                    {#<button id="btn-control-panel" title="Sign in" name="btn-control-panel" type="button" class="btn btn-primary navbar-btn" data-toggle="modal" data-target="#loginDialog">#}
-                        {#<span class="glyphicon glyphicon-log-in"></span>#}
-                    {#</button>#}
-                {#</div>#}
-                {#<script>#}
-                    {#function toggleBtnControlPanel(){#}
-                        {#$('#btn-control-panel').toggle('fast');#}
-                    {#}#}
-                {#</script>#}
-            {#</nav>#}
-            <!-- Modal: Sign in Dialog -->
-            <!--
-                    Move to another twig template and include
-            -->
-            {#<div class="modal fade" id="loginDialog" tabindex="-1" role="dialog" aria-labelledby="loginDialogLabel" aria-hidden="true">#}
-                {#<div class="modal-dialog">#}
-                    {#<div class="modal-content">#}
-                        {#<div class="modal-header">#}
-                            {#<button type="button" class="close" data-dismiss="modal">#}
-                                {#<span aria-hidden="true">&times;</span>#}
-                                {#<span class="sr-only">Close</span>#}
-                            {#</button>#}
-                            {#<h4 class="modal-title" id="loginDialogLabel">Sign in</h4>#}
-                        {#</div>#}
-                        {#<div class="modal-body">#}
-                            {#<form class="form-horizontal" role="form">#}
-                                {#<!--<span style="font-size: 45px;" class="glyphicon glyphicon-user"></span>-->#}
-                                {#<div class="login-inputs-wrapper">#}
-                                    {#<!-- Add this classes to DIV for visualize validation [ has-success has-feedback ]-->#}
-                                    {#<div class="form-group has-success has-feedback">#}
-                                        {#<!--<label for="inputPassword3" class="col-sm-2 control-label">Password</label>-->#}
-                                        {#<div class="input-group col-sm-12">#}
-                                            {#<span class="input-group-addon">#}
-                                                {#<span class="glyphicon glyphicon-envelope"></span>#}
-                                            {#</span>#}
-                                            {#<input type="email" class="form-control" id="inputEmail3" placeholder="Email">#}
-                                            {#<span class="glyphicon glyphicon-ok form-control-feedback"></span>#}
-                                        {#</div>#}
-                                    {#</div>#}
-                                    {#<div class="form-group">#}
-                                        {#<!--<label for="inputPassword3" class="col-sm-2 control-label">Password</label>-->#}
-                                        {#<div class="input-group col-sm-12">#}
-                                            {#<span class="input-group-addon">#}
-                                                {#<span class="glyphicon glyphicon-lock"></span>#}
-                                            {#</span>#}
-                                            {#<input type="password" class="form-control" id="inputPassword3" placeholder="Password">#}
-                                            {#<span class="glyphicon glyphicon-ok form-control-feedback hidden"></span>#}
-                                        {#</div>#}
-                                    {#</div>#}
-                                    {#<div class="alert alert-warning alert-dismissible fade in" role="alert">#}
-                                        {#<button type="button" class="close" data-dismiss="alert">#}
-                                            {#<span aria-hidden="true">&times;</span>#}
-                                            {#<span class="sr-only">Close</span>#}
-                                        {#</button>#}
-                                        {#<strong>Warning:</strong> This demonstration modal dialog#}
-                                    {#</div>#}
-                                {#</div>#}
-                                {#<div class="form-group">#}
-                                    {#<div class="col-sm-offset-2 col-sm-10">#}
-                                        {#<div class="checkbox">#}
-                                            {#<label>#}
-                                                {#<input type="checkbox"> Remember me#}
-                                            {#</label>#}
-                                        {#</div>#}
-                                    {#</div>#}
-                                {#</div>#}
-                                {#<div class="form-group">#}
-                                    {#<div class="col-sm-offset-2 col-sm-10">#}
-                                        {#<button type="submit" class="btn btn-success">Sign in</button>#}
-                                        {#<button type="submit" class="btn btn-primary">Restore password</button>#}
-                                    {#</div>#}
-                                {#</div>#}
-                            {#</form>#}
-                        {#</div>#}
-                        {#<!--<div class="modal-footer">-->#}
-                        {#<!--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->#}
-                        {#<!--<button type="button" class="btn btn-primary">Save changes</button>-->#}
-                        {#<!--</div>-->#}
-                    {#</div>#}
-                {#</div>#}
-            {#</div>#}
             <div id="site-content">
             {% block container %}{% endblock %}
                 <div id="footer">
