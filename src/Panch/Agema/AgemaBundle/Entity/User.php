@@ -25,7 +25,6 @@ class User extends BaseUser
     public function __construct()
     {
         parent::__construct();
-        // your own logic
     }
 
     /**
@@ -36,5 +35,15 @@ class User extends BaseUser
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * @return array
+     */
+    public function getRoles()
+    {
+        $roles = $this->roles;
+
+        return $roles;
     }
 }

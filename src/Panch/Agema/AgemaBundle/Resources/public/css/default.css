@@ -38,6 +38,10 @@
     overflow: hidden;
 }
 
+.navbar-fixed-top {
+    box-shadow: 0 0 8px rgba(0,0,0,.4);
+}
+
 .navbar-toggle {
     min-width: 32px;
     background-color: #ffffff;

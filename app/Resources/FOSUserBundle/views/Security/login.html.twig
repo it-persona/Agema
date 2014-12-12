@@ -23,7 +23,7 @@
                 <span class="input-group-addon">
                     <span class="glyphicon glyphicon-envelope"></span>
                 </span>
-                <input class="form-control" type="text" id="username" name="_username" value="{{ last_username }}" placeholder="user@mail.com" required="required" />
+                <input class="form-control" type="text" id="username" name="_username" value="{{ last_username }}" placeholder="Login" required="required" />
                 {#<span class="glyphicon glyphicon-ok form-control-feedback"></span>#}
             </div>
         </div>
@@ -61,14 +61,15 @@
         <div class="col-sm-offset-2 col-sm-10">
             <button type="submit" class="btn btn-success">Sign in</button>
             <a href="{{ path('panch_agema_agema_index_index') }}">
+                {#{% dump csrf_token, last_username, error, app.user.username %}#}
                 <button type="button" class="btn btn-primary">Cancel</button>
             </a>
         </div>
     </div>
 </form>
-        </div>
-    </div>
 </div>
-    </div>
+</div>
+</div>
+</div>
     {% include '@PanchAgema/Index/index.html.twig' %}
 {% endblock fos_user_content %}
