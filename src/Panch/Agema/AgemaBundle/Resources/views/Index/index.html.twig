@@ -1,13 +1,10 @@
-{% extends '::base.html.twig' %}
+{% extends '@PanchAgema/FOSUserBundle/layout.html.twig' %}
 
 {# need add suppurt this syntax in {% block title %}
     (create config service for application):
     {{ site_name }} &mdash; {{ page_title }}
 #}
-
-{% block title %}Agema optics &mdash; Default page title{% endblock %}
-
-{% block nav_menu %}
+{% block body %}
     <nav id="menu" class="navbar navbar-default navbar-fixed-top" role="navigation">
         <div class="navbar-header">
             <a class="navbar-brand" href="{{ path('panch_agema_agema_index_index') }}" title="Agema optics &mdash; deep space in your eyes"></a>
@@ -17,10 +14,20 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <button type="button" class="btn btn-primary navbar-toggle navbar-btn" title="Sign in">
-                <span class="glyphicon glyphicon-log-in"></span>
-            </button>
-        </div>
+                {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                    <a href="{{ path('fos_user_security_logout') }}">
+                        <button type="button" class="btn btn-primary navbar-toggle navbar-btn" title="{{ 'layout.logout'|trans({}, 'FOSUserBundle') }}">
+                            <span class="glyphicon glyphicon-log-in"></span>
+                        </button>
+                    </a>
+                {% else %}
+                    <a href="{{ path('fos_user_security_login') }}">
+                        <button type="button" class="btn btn-primary navbar-toggle navbar-btn" title="{{ 'layout.login'|trans({}, 'FOSUserBundle') }}">
+                            <span class="glyphicon glyphicon-log-in"></span>
+                        </button>
+                    </a>
+                {% endif %}
+            </div>
         <div class="collapse navbar-collapse" id="collapsed-nav-menu">
             <ul class="nav navbar-nav navbar-left">
                 <li class="active">
@@ -60,24 +67,39 @@
                     <a href="{{ path('panch_agema_agema_index_index') }}">About</a>
                 </li>
             </ul>
-            <!-- Need refactoring -->
-            {#<a href="{{ path('fos_user_security_login') }}">#}
-                {#<button id="btn-control-panel" title="Sign in" name="btn-control-panel" type="button" class="btn btn-primary navbar-btn" data-toggle="modal" data-target="#loginDialog">#}
-                    {#<span class="glyphicon glyphicon-log-in"></span>#}
-                {#</button>#}
-            {#</a>#}
-            {% include '@PanchAgema/FOSUserBundle/layout.html.twig' %}
-            {% block fos_user_content %}{% endblock %}
-        </div>
-        <script>
-            function toggleBtnControlPanel() {
-                $('#btn-control-panel').toggle('fast');
-            }
-        </script>
+            <div class="sign-in" style="font-size: 10px; color: #4d4d4d">
+                {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                    {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }}
+                    <a href="{{ path('fos_user_security_logout') }}">
+                        <button id="btn-control-panel" title="{{ 'layout.logout'|trans({}, 'FOSUserBundle') }}" name="btn-control-panel" type="button" class="btn btn-primary navbar-btn" data-toggle="modal" data-target="#loginDialog">
+                            <span class="glyphicon glyphicon-log-in"></span>
+                        </button>
+                    </a><br>
+                    {% for role in user_roles %}
+                        {% if role == 'ROLE_SUPER_ADMIN' %}
+                            <span style="color: darkgreen; font-weight: bold; font-size: 10px;">{{ role }}</span>
+                        {% else %}
+                            <span style="color: #0000bb; font-weight: bold; font-size: 10px;">{{ role }}</span>
+                        {% endif %}
+                    {% endfor %}
+                {% else %}
+                    <strong style="color: red;">NOT_AUTHORIZE_USER</strong>
+                    <a href="{{ path('fos_user_security_login') }}">
+                        <button id="btn-control-panel" title="{{ 'layout.login'|trans({}, 'FOSUserBundle') }}" name="btn-control-panel" type="button" class="btn btn-primary navbar-btn" data-toggle="modal" data-target="#loginDialog">
+                            <span class="glyphicon glyphicon-log-in"></span>
+                        </button>
+                    </a>
+                {% endif %}
+                </div>
+            <script>
+                function toggleBtnControlPanel() {
+                    $('#btn-control-panel').toggle('fast');
+                }
+            </script>
+            </div>
     </nav>
-{% endblock %}
-
-{% block container %}
+<div id="site-content">
+    {% block container %}
     <div class="jumbotron area">
     <h1>Welcome!</h1>
     <p class="jumbotron-text">
@@ -164,5 +186,6 @@
     </div>
     </div>
     </div>
-    {#{% dump last_login.date %}#}
+</div>
+        {% endblock container %}
 {% endblock %}
