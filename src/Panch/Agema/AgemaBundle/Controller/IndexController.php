@@ -33,20 +33,21 @@ class IndexController extends Controller
      */
     public function indexAction()
     {
-
         if ($this->isGranted('IS_AUTHENTICATED_REMEMBERED')) {
             $user = $this->getUser();
             $role = $user->getRoles();
 
             if (empty($role)) {
                 $user->setRoles(array('ROLE_DEFAULT'));
-                $this->get('fos_user.user_manager')->updateUser($user, true);
+                $this->get('fos_user.user_manager')->updateUser($user);
+
+                $this->get('doctrine')->getManager()->flush($user);
                 $role = $user->getRoles();
             }
 
             return ['user_roles' => $role];
         }
 
-        return[$this->get('router')->generate('panch_agema_agema_index_index')];
+        return [$this->get('router')->generate('panch_agema_agema_index_index')];
     }
 }
