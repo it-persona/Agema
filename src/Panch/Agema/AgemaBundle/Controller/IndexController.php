@@ -37,14 +37,6 @@ class IndexController extends Controller
             $user = $this->getUser();
             $role = $user->getRoles();
 
-            if (empty($role)) {
-                $user->setRoles(array('ROLE_DEFAULT'));
-                $this->get('fos_user.user_manager')->updateUser($user);
-
-                $this->get('doctrine')->getManager()->flush($user);
-                $role = $user->getRoles();
-            }
-
             return ['user_roles' => $role];
         }
 

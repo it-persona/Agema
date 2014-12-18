@@ -1,0 +1,23 @@
+body {
+    background-image: linear-gradient(to top,
+    rgba(171, 172, 172, 1), rgba(220, 220, 220, 1),
+    rgba(220, 220, 220, 1), rgba(171, 172, 172, 1));
+}
+
+.login-inputs-wrapper {
+    margin: 0 auto;
+    width: 60%;
+}
+
+.input-group.col-sm-12 span.form-control-feedback {
+    right: 0;
+}
+
+.input-group.col-sm-12 span.input-group-addon {
+    font-size: 16px;
+}
+
+.modal-dialog {
+    width: 600px;
+    margin: 8% auto;
+}

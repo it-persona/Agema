@@ -100,7 +100,7 @@ fos_user:
                 address:        webmaster@example.com
                 sender_name:    webmaster
             enabled:    false # change to true for required email confirmation
-            template:   FOSUserBundle:Registration:email.txt.twig
+            template:   FOSUserBundle:Registration:email.html.twig
         form:
             type:               fos_user_registration
             name:               fos_user_registration_form
@@ -111,7 +111,7 @@ fos_user:
             from_email: # Use this node only if you don't want the global email address for the resetting email
                 address:        webmaster@example.com
                 sender_name:    webmaster
-            template:   FOSUserBundle:Resetting:email.txt.twig
+            template:   FOSUserBundle:Resetting:email.html.twig
         form:
             type:               fos_user_resetting
             name:               fos_user_resetting_form
