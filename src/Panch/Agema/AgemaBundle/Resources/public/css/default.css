@@ -1,4 +1,8 @@
-/* Bootstrap style corrections */
+/* Customize Bootstrap styles
+------------------------------*/
+body {
+    background: #ffffff;
+}
 
 #site-content {
     margin: 75px 20px 20px 20px;
@@ -38,10 +42,6 @@
     overflow: hidden;
 }
 
-.navbar-fixed-top {
-    box-shadow: 0 0 8px rgba(0,0,0,.4);
-}
-
 .navbar-toggle {
     min-width: 32px;
     background-color: #ffffff;
@@ -51,16 +51,12 @@
 .navbar-default .navbar-toggle:hover {
     opacity: 1;
     background-color: #ffffff;
-    border-color: #bbb;
+    border-color: #bbbbbb;
 }
 
 .navbar-default .navbar-toggle:active {
     background-color: #ffffff;
     opacity: .8;
-}
-
-.navbar-header {
-    border-right: 1px solid #dddddd;
 }
 
 .navbar-brand {
@@ -76,6 +72,29 @@
     opacity: 1;
 }
 
+.navbar.navbar-default.navbar-fixed-top {
+    display: block;
+    position: fixed;
+    background-color: #f7f7f7;
+    background-image: -moz-linear-gradient(top, #e1e1e1, #ffffff);
+    background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#ffffff), to(#e4e4e4));
+    background-image: -o-linear-gradient(top, #e1e1e1, #ffffff);
+    background: linear-gradient(top, #e1e1e1, #ffffff);
+    height: 50px;
+    z-index: 6000000;
+}
+
+#collapsed-nav-menu {
+    background-color: #f7f7f7;
+    background-image: -moz-linear-gradient(top, #e1e1e1, #ffffff);
+    background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#ffffff), to(#e4e4e4));
+    background-image: -o-linear-gradient(top, #e1e1e1, #ffffff);
+    background: linear-gradient(top, #e1e1e1, #ffffff);
+    height: 58px;
+    box-shadow: none;
+    z-index: 6000000;
+}
+
 #collapsed-nav-menu.navbar-collapse.collapse.in button {
     visibility: hidden;
     margin: 0;
@@ -84,30 +103,62 @@
     width: 0;
 }
 
-ul.nav.navbar-nav.navbar-left {
-    border-right: 1px solid #dddddd;
+ul.nav.navbar-nav.navbar-left,
+ul.nav.navbar-nav.navbar-left.dropdown-toggle {
+    border-right: 1px solid #bbbbbb;
+    height: 52px;
 }
 
-ul.nav.navbar-nav.navbar-left:hover {
+ul.nav.navbar-nav.navbar-left:first-child {
+    border-left: 1px solid #bbbbbb;
+    margin-left: -1px;
+    height: 52px;
+    top: 0;
+    z-index: 99998;
+}
+
+ul.nav.navbar-nav.navbar-left:hover,
+ul.nav.navbar-nav.navbar-left.dropdown-toggle:hover {
     background: #fdfdfd;
-    color: #333;
-    opacity: .8;
+    display: block;
+    padding: 0;
+    min-height: 52px;
+    color: #555555;
+    box-shadow: rgba(0, 0, 0, 0.35) 0 1px 5px;
+    margin-left: -1px;
+    position: relative;
+    border-left: 1px solid #bbbbbb;
+    top: 0;
+    z-index: 99999;
 }
 
-ul.nav.navbar-nav.navbar-left li.active a {
-    background-color: #fdfdfd;
-    opacity: .8;
+ul.nav.navbar-nav.navbar-left li.active a,
+ul.nav.navbar-nav.navbar-left li.dropdown.active a {
+    background-color: #ffffff;
+    height: 52px;
+    border-bottom: 1px solid #ffffff;
 }
 
 ul.nav.navbar-nav.navbar-left li.active a:hover {
-    color: #333;
+    box-shadow: rgba(0, 0, 0, 0) 0 0 0 0;
 }
-#menu {
-    background: url("../images/interface/bkg/extra_clean_paper.png");
+
+.dropdown.open,
+.dropdown.open:hover,
+.dropdown.open:active {
+    opacity: 1;
+}
+
+.navbar-default .navbar-nav > li > a:focus,
+.navbar-default .navbar-nav > .open > a:focus,
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > .open > a:hover {
+    color: #555555;
+    font-weight: lighter;
 }
 
 #copyright {
-    color: #777;
+    color: #777777;
     font-size: 11px;
 }
 
@@ -155,6 +206,7 @@ a.btn.btn-primary.btn-lg {
 
 .jumbotron.area {
     padding-bottom: 20px;
+    border-radius: 7px;
 }
 
 .jumbotron p {

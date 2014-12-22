@@ -9,7 +9,6 @@
                 <h4 class="modal-title" id="loginDialogLabel">Authentication</h4>
             </div>
             <div class="modal-body">
-                <p>Please enter your login and password to sign in</p>
                 <form class="form-horizontal" action="{{ path("fos_user_security_check") }}" method="post">
                     <div class="login-inputs-wrapper">
                         <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
@@ -53,7 +52,10 @@
                         <div class="col-sm-offset-2 col-sm-10">
                             <button type="submit" class="btn btn-success">Login</button>
                             <a href="{{ path('panch_agema_agema_index_index') }}">
-                                <button type="button" class="btn btn-primary">Cancel</button>
+                                <button type="button" class="btn btn-primary">Register</button>
+                            </a>
+                            <a href="{{ path('panch_agema_agema_index_index') }}">
+                                <button type="button" class="btn btn-default">Cancel</button>
                             </a>
                         </div>
                     </div>
