@@ -6,7 +6,7 @@ body {
 
 .login-inputs-wrapper {
     margin: 0 auto;
-    width: 60%;
+    width: 80%;
 }
 
 .input-group.col-sm-12 span.form-control-feedback {
@@ -18,7 +18,7 @@ body {
 }
 
 .modal-dialog {
-    width: 600px;
+    width: 500px;
     margin: 8% auto;
 }
 .modal-content {
@@ -57,7 +57,11 @@ body {
     min-width: 85px;
 }
 
-div .col-sm-offset-2.col-sm-10 a .btn.btn-default{
+div .modal-btn-group a .btn.btn-default{
     float: right;
-    margin-right: 21%;
+}
+
+.modal-btn-group {
+    margin: 0 auto;
+    float: none;
 }
