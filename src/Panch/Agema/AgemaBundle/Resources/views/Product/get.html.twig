@@ -1,0 +1,12 @@
+{% extends '@PanchAgema/base.html.twig' %}
+
+{% block body %}
+    {% block container %}
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <strong>{{ product.title }}</strong>
+            </div>
+            {{ product.shortdescription }}
+        </div>
+    {% endblock container %}
+{% endblock body %}
