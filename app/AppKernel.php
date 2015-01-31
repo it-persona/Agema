@@ -18,6 +18,7 @@ class AppKernel extends Kernel
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new FOS\UserBundle\FOSUserBundle(),
             new Panch\Agema\AgemaBundle\PanchAgemaBundle(),
+            new Panch\Agema\AdminBundle\PanchAgemaAdminBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
