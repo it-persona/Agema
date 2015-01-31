@@ -9,10 +9,9 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class IndexController extends Controller
 {
-
     /**
      * @Template()
-     * @Route("/admin/dashboard")
+     * @Route("/admin")
      * @Method("GET")
      */
 
