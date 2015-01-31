@@ -14,9 +14,11 @@ class IndexController extends Controller
      * @Route("/admin")
      * @Method("GET")
      */
-
     public function indexAction()
     {
-        return ['message' => 'It work!'];
+        return [
+                'title'    => 'Dashboard',
+                'message'  => 'It work!',
+        ];
     }
 }

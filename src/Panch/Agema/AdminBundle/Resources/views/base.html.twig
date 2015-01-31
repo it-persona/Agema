@@ -61,7 +61,18 @@
                 </button>
             </div>
             <!-- /.navbar-header -->
-
+            <ul class="nav navbar-nav navbar-left">
+                <li>
+                    <a class="dashboard-menu" href="{{ path('panch_agema_agema_index_index') }}">
+                        <span class="glyphicon glyphicon-arrow-left"></span>
+                    </a>
+                </li>
+                <li>
+                    <a class="dashboard-menu" href="{{ path('panch_agema_admin_index_index') }}">
+                        <span class="glyphicon glyphicon-refresh"></span>
+                    </a>
+                </li>
+            </ul>
             <ul class="nav navbar-top-links navbar-right">
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
@@ -332,10 +343,10 @@
                                     <a href="#">Products <span class="fa arrow"></span></a>
                                     <ul class="nav nav-third-level">
                                         <li>
-                                            <a href="#">Products List</a>
+                                            <a href="{{ path('panch_agema_admin_product_list') }}">Products List</a>
                                         </li>
                                         <li>
-                                            <a href="#">Add New</a>
+                                            <a href="{{ path('panch_agema_admin_product_add') }}">Add New</a>
                                         </li>
                                     </ul>
                                     <!-- /.nav-third-level -->

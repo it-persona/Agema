@@ -18,7 +18,24 @@ class ProductController extends Controller
     public function addAction()
     {
         // In progress
-        return ["test"    => "Action -ADD- work!"];
+        return [
+                'test'    => 'Action -ADD- work!',
+                'title'   => 'New Product',
+        ];
+    }
+
+    /**
+     * @Template()
+     * @Route("/admin/product/list")
+     * @Method("GET")
+     */
+    public function listAction()
+    {
+        // In progress
+        return [
+                'test'     => 'Action ListProducts - OK!',
+                'title'    => 'Products List',
+        ];
     }
 
 }

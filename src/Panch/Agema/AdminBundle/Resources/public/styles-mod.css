@@ -22,3 +22,9 @@ a.dropdown-toggle i.fa.fa-caret-down {
 .nav>li>a.dropdown-toggle:focus {
     color: #3F3F3F;
 }
+
+ul.navbar-left li a {
+    font-size: large;
+    padding-bottom: 13px;
+}
+

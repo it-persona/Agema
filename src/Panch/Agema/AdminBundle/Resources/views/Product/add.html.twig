@@ -1,12 +1,19 @@
-{% extends '@PanchAgema/base.html.twig' %}
+{% extends '@PanchAgemaAdmin/base.html.twig' %}
 
 {% block body %}
     {% block container %}
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <strong>Test action add new product</strong>
+
+    <div id="page-wrapper">
+        <div class="row">
+            <div class="col-lg-12">
+                <h3 class="page-header">{{ title }}</h3>
+            </div>
+            <!-- /.col-lg-12 -->
+            <p>{{ test }}</p>
         </div>
-        {{ test }}
+        <!-- /.row -->
     </div>
+    <!-- /#page-wrapper
+
     {% endblock container %}
 {% endblock body %}
