@@ -1,0 +1,24 @@
+/*
+    Override Bootstrap default styles
+*/
+
+a.dropdown-toggle {
+    color: #666666;
+}
+
+a i.fa {
+    font-size: large;
+}
+
+.dropdown-menu li a i.fa {
+    font-size: inherit;
+}
+
+a.dropdown-toggle i.fa.fa-caret-down {
+    font-size: inherit;
+}
+
+.nav>li>a.dropdown-toggle:hover,
+.nav>li>a.dropdown-toggle:focus {
+    color: #3F3F3F;
+}
