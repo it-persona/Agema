@@ -305,7 +305,7 @@
                             <a href="#"><i class="fa fa-shopping-cart fa-fw"></i> Orders<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="#">New</a>
+                                    <a href="#">Received</a>
                                 </li>
                                 <li>
                                     <a href="#">Confirmed</a>
@@ -314,10 +314,13 @@
                                     <a href="#">Paid</a>
                                 </li>
                                 <li>
-                                    <a href="#">Sent</a>
+                                    <a href="#">Delivered</a>
                                 </li>
                                 <li>
                                     <a href="#">Closed</a>
+                                </li>
+                                <li>
+                                    <a href="#">Failed</a>
                                 </li>
                             </ul>
                         </li>
@@ -380,7 +383,6 @@
     {% block javascripts %}
 
     <!-- jQuery -->
-    {#<script src="{{ asset('bundles/panchagemaadmin/bower_components/jquery/dist/jquery.min.js') }}"></script>#}
     <script src="{{ asset('bundles/panchagema/js/jquery-1.11.1.min.js') }}"></script>
 
     <!-- Bootstrap Core JavaScript -->
