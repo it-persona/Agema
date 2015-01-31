@@ -17,7 +17,7 @@
     {% block nav %}
         <nav id="menu" class="navbar navbar-default navbar-fixed-top" role="navigation">
             <div class="navbar-header">
-                <a class="navbar-brand" data-toggle="tooltip" data-placement="bottom" title="Agema optics &mdash; deep space in your eyes" href="{{ path('panch_agema_agema_index_index') }}" title="Agema optics &mdash; deep space in your eyes"></a>
+                <a class="navbar-brand" href="{{ path('panch_agema_agema_index_index') }}" title="Agema optics &mdash; deep space in your eyes"></a>
                 <button type="button" class="navbar-toggle" title="Show menu" data-toggle="collapse" data-target="#collapsed-nav-menu" onclick="toggleBtnControlPanel()">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
@@ -49,7 +49,7 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Telescopes
                             <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
-                            <li><a href="#cd age">Refractors</a></li>
+                            <li><a href="#">Refractors</a></li>
                             <li><a href="#">Reflectors</a></li>
                             <li><a href="#">Something else here</a></li>
                             <li class="divider"></li>
@@ -77,45 +77,8 @@
                         <a href="{{ path('panch_agema_agema_index_index') }}">About</a>
                     </li>
                 </ul>
-                <div class="sign-in" style="font-size: 10px; color: #4d4d4d">
-                    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                        {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }}
-                        <a href="{{ path('fos_user_security_logout') }}">
-                            <button id="btn-control-panel" title="{{ 'layout.logout'|trans({}, 'FOSUserBundle') }}" name="btn-control-panel" type="button" class="btn btn-primary navbar-btn" data-toggle="modal" data-target="#loginDialog">
-                                <span class="glyphicon glyphicon-log-in"></span>
-                            </button>
-                        </a><br>
-                        {% for role in user_roles %}
-                            {% if role == 'ROLE_SUPER_ADMIN' %}
-                                <span style="color: darkgreen; font-weight: bold; font-size: 10px;">{{ role }}</span>
-                            {% else %}
-                                <span style="color: #0000bb; font-weight: bold; font-size: 10px;">{{ role }}</span>
-                            {% endif %}
-                        {% endfor %}
-                    {% else %}
-                        <strong style="color: red;">NOT_AUTHORIZE_USER</strong>
-                        <a href="{{ path('fos_user_security_login') }}">
-                            <button id="btn-control-panel" title="{{ 'layout.login'|trans({}, 'FOSUserBundle') }}" name="btn-control-panel" type="button" class="btn btn-primary navbar-btn" data-toggle="modal" data-target="#loginDialog">
-                                <span class="glyphicon glyphicon-log-in"></span>
-                            </button>
-                        </a>
-                    {% endif %}
-                </div>
-                <script>
-                    function toggleBtnControlPanel() {
-                        $('#btn-control-panel').toggle('fast');
-                    }
-                    
-                        // tooltip demo
-                            $('.navbar-header').tooltip({
-                                selector: "[data-toggle=tooltip]",
-                                container: "body"
-                            })
-
-                        // popover demo
-                            $("[data-toggle=popover]")
-                                .popover()
-                </script>
+                    {{ render(controller('PanchAgemaBundle:Index:permissions')) }}
+                {% block permissions %}{% endblock permissions %}
             </div>
         </nav>
     {% endblock nav %}

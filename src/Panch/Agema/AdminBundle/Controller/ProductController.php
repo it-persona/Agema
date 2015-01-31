@@ -1,21 +1,24 @@
 <?php
 
-namespace Panch\Agema\AgemaBundle\Controller;
+namespace Panch\Agema\AdminBundle\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\Routing\Annotation\Route;
+use Panch\Agema\AgemaBundle\Entity\Product;
 
 class ProductController extends Controller
 {
     /**
      * @Template()
-     * @Route("/product/{slug}")
+     * @Route("/admin/product/add")
      * @Method("GET")
      */
-    public function getAction($slug)
+    public function addAction()
     {
-        return ['product' => $this->get('doctrine')->getManager()->getRepository('PanchAgemaBundle:Product')->findOneBySlug($slug)];
+        // In progress
+        return ["test"    => "Action -ADD- work!"];
     }
+
 }
