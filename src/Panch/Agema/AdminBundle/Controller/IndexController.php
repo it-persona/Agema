@@ -12,7 +12,7 @@ class IndexController extends Controller
 
     /**
      * @Template()
-     * @Route("/dashboard")
+     * @Route("/admin/dashboard")
      * @Method("GET")
      */
 
