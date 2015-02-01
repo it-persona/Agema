@@ -35,9 +35,6 @@ body {
 }
 
 .hidden {
-    border: transparent;
-    background-color: transparent;
-    color: transparent;
     visibility: hidden;
     overflow: hidden;
 }
@@ -84,35 +81,36 @@ body {
     z-index: 6000000;
 }
 
-#collapsed-nav-menu {
+.navbar-collapse.collapse.in {
     background-color: #f7f7f7;
     background-image: -moz-linear-gradient(top, #e1e1e1, #ffffff);
     background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#ffffff), to(#e4e4e4));
     background-image: -o-linear-gradient(top, #e1e1e1, #ffffff);
     background: linear-gradient(top, #e1e1e1, #ffffff);
-    height: 58px;
     box-shadow: none;
-    z-index: 6000000;
+    z-index: 9000000;
 }
 
-#collapsed-nav-menu.navbar-collapse.collapse.in button {
+#collapsed-nav-ul.nav.navbar-nav.navbar-left, ul.nav.navbar-nav.navbar-left.dropdown-togglemenu.navbar-collapse.collapse.in button {
     visibility: hidden;
+    background-color: #f7f7f7;
     margin: 0;
     padding: 0;
-    height: 0;
     width: 0;
 }
 
 ul.nav.navbar-nav.navbar-left,
 ul.nav.navbar-nav.navbar-left.dropdown-toggle {
     border-right: 1px solid #bbbbbb;
-    height: 52px;
+}
+
+ul.nav.navbar-nav.navbar-left::after {
+    border-right: 0;
 }
 
 ul.nav.navbar-nav.navbar-left:first-child {
     border-left: 1px solid #bbbbbb;
     margin-left: -1px;
-    height: 52px;
     top: 0;
     z-index: 99998;
 }
@@ -122,7 +120,6 @@ ul.nav.navbar-nav.navbar-left.dropdown-toggle:hover {
     background: #fdfdfd;
     display: block;
     padding: 0;
-    min-height: 52px;
     color: #555555;
     box-shadow: rgba(0, 0, 0, 0.35) 0 1px 5px;
     margin-left: -1px;
@@ -132,11 +129,14 @@ ul.nav.navbar-nav.navbar-left.dropdown-toggle:hover {
     z-index: 99999;
 }
 
+ul.nav.navbar-nav.navbar-left:hover:after {
+    border-left: none;
+    box-shadow: none;
+}
+
 ul.nav.navbar-nav.navbar-left li.active a,
 ul.nav.navbar-nav.navbar-left li.dropdown.active a {
     background-color: #ffffff;
-    height: 52px;
-    border-bottom: 1px solid #ffffff;
 }
 
 ul.nav.navbar-nav.navbar-left li.active a:hover {

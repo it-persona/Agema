@@ -28,3 +28,23 @@ ul.navbar-left li a {
     padding-bottom: 13px;
 }
 
+.navbar-brand {
+    background: url("images/admin-logo.png") no-repeat center transparent;
+    background-size: 100px;
+    margin-left: 20px;
+    margin-right: 20px;
+    opacity: 0.6;
+    width: 100px;
+}
+
+.navbar-brand:hover {
+    opacity: 1;
+}
+
+.sidebar ul li a.active::before {
+    content: '• '; /* alt  ► */
+}
+
+#dashboard-link::before {
+    content: '';
+}
