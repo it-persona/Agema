@@ -10,7 +10,7 @@ class ProductControllerTest extends WebTestCase
     {
         $client = static::createClient();
 
-        $client->request('GET', '/admin/product/add');
+        $client->request('GET', '/admin/products/add');
         $this->assertNotEquals(404, $client->getResponse()->getStatusCode());
     }
 
@@ -19,7 +19,7 @@ class ProductControllerTest extends WebTestCase
     {
         $client = static::createClient();
 
-        $client->request('GET', '/admin/product/list');
+        $client->request('GET', '/admin/products/list');
         $this->assertNotEquals(404, $client->getResponse()->getStatusCode());
     }
 }

@@ -5,10 +5,14 @@ use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Panch\Agema\AgemaBundle\Entity\Product;
 use Panch\Agema\AgemaBundle\Entity\Category;
-use Panch\Agema\AgemaBundle\Entity\User;
 
-class LoadProduct extends AbstractFixture implements OrderedFixtureInterface
+class LoadProductFixture extends AbstractFixture implements OrderedFixtureInterface
 {
+    /**
+     * Load fixtures data for Category and Product.
+     *
+     * @param ObjectManager $manager
+     */
     public function load(ObjectManager $manager)
     {
         $category = new Category();
@@ -36,6 +40,9 @@ class LoadProduct extends AbstractFixture implements OrderedFixtureInterface
         $manager->flush();
     }
 
+    /**
+     * @return int
+     */
     public function getOrder()
     {
         return 1;
