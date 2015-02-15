@@ -10,12 +10,12 @@ use Symfony\Component\Routing\Annotation\Route;
 class IndexController extends Controller
 {
     /**
-     * @var string
+     * @var string Site name
      */
     protected $siteName;
 
     /**
-     * @var string
+     * @var string Page title
      */
     protected $pageTitle;
 
@@ -32,6 +32,17 @@ class IndexController extends Controller
      * @Method("GET")
      */
     public function indexAction()
+    {
+        return [
+                'site_name'    => $this->siteName,
+                'page_title'   => $this->pageTitle,
+        ];
+    }
+
+    /**
+     * @Template()
+     */
+    public function permissionsAction()
     {
         if ($this->isGranted('IS_AUTHENTICATED_REMEMBERED')) {
             $user = $this->getUser();

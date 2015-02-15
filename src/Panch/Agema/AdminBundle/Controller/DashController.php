@@ -7,17 +7,18 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\Routing\Annotation\Route;
 
-class IndexController extends Controller
+class DashController extends Controller
 {
-
     /**
      * @Template()
-     * @Route("/admin/dashboard")
+     * @Route("/admin")
      * @Method("GET")
      */
-
-    public function indexAction()
+    public function dashAction()
     {
-        return ['message' => 'It work!'];
+        return [
+                'title'    => 'Dashboard',
+                'message'  => 'It work!',
+        ];
     }
 }

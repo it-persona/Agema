@@ -30,9 +30,10 @@ class Product
     private $title;
 
     /**
-     * @var string
+     * @var ORM\ManyToOne
      *
-     * @ORM\Column(name="category", type="string", length=25)
+     * @ORM\ManyToOne(targetEntity="Panch\Agema\AgemaBundle\Entity\Category", inversedBy="product")
+     * @ORM\JoinColumn(name="category_id", referencedColumnName="id")
      */
     private $category;
 
@@ -107,6 +108,8 @@ class Product
     private $fieldCorrector;
 
     /**
+     * @var string
+     *
      * @Gedmo\Slug(fields={"title"})
      * @ORM\Column(name="slug", type="string", length=255)
      */
@@ -149,10 +152,10 @@ class Product
     /**
      * Set category
      *
-     * @param string $category
+     * @param $category
      * @return Product
      */
-    public function setCategory($category)
+    public function setCategory(Category $category = null)
     {
         $this->category = $category;
 
@@ -162,7 +165,7 @@ class Product
     /**
      * Get category
      *
-     * @return string
+     * @return Category
      */
     public function getCategory()
     {

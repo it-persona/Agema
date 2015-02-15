@@ -18,15 +18,4 @@ class ProductController extends Controller
     {
         return ['product' => $this->get('doctrine')->getManager()->getRepository('PanchAgemaBundle:Product')->findOneBySlug($slug)];
     }
-
-    /**
-     * @Template()
-     * @Route("/refractors/add")
-     * @Method("GET")
-     */
-    public function addAction()
-    {
-        // In progress
-       return ["test"    => "Action -ADD- work!"];
-    }
 }
