@@ -12,12 +12,11 @@ class ProductController extends Controller
 {
     /**
      * @Template()
-     * @Route("/admin/product/add")
+     * @Route("/admin/products/add")
      * @Method("GET")
      */
     public function addAction()
     {
-        // In progress
         return [
                 'test'    => 'Action -ADD- work!',
                 'title'   => 'New Product',
@@ -26,16 +25,14 @@ class ProductController extends Controller
 
     /**
      * @Template()
-     * @Route("/admin/product/list")
+     * @Route("/admin/products/list")
      * @Method("GET")
      */
     public function listAction()
     {
-        // In progress
         return [
                 'test'     => 'Action ListProducts - OK!',
                 'title'    => 'Products List',
         ];
     }
-
 }

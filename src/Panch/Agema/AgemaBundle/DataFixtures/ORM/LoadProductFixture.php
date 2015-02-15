@@ -4,16 +4,21 @@ use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Panch\Agema\AgemaBundle\Entity\Product;
+use Panch\Agema\AgemaBundle\Entity\Category;
+use Panch\Agema\AgemaBundle\Entity\User;
 
-class LoadUserData extends AbstractFixture implements OrderedFixtureInterface
+class LoadProduct extends AbstractFixture implements OrderedFixtureInterface
 {
     public function load(ObjectManager $manager)
     {
+        $category = new Category();
+
+        $category->setCategoryName('Refractors');
+
         $product = new Product();
 
         $product
             ->setTitle('Agema SD-180')
-            ->setCategory('refractor')
             ->setShortDescription('This is short description about current product')
             ->setClearAperture('180 mm /7.1 inch')
             ->setColorCorrection('Focus color variations are less than 0.006% focal length from 420 to 706 nm (for high pupil zone), melt controlled optics.')
@@ -23,9 +28,11 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface
             ->setLimitVisualMagnitude(13.8)
             ->setMagnificationRange('from 30X to 450X')
             ->setResolution(0.63)
-            ->setTube('Aluminum, 200 mm OD*, Light grey color, powder coating, baffled, flat black interior, special  design fine adjustment cell.');
+            ->setTube('Aluminum, 200 mm OD, Light grey color, powder coating, baffled, flat black interior, special  design fine adjustment cell.')
+            ->setCategory($category);
 
         $manager->persist($product);
+        $manager->persist($category);
         $manager->flush();
     }
 
