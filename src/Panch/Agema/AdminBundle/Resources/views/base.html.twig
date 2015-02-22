@@ -294,13 +294,37 @@
                             <a id ="dashboard-link" href="{{ path('panch_agema_admin_dash_dash') }}"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Charts<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-users fa-fw"></i> Users<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="#">Flot Charts</a>
+                                    <a href="#">Users List</a>
                                 </li>
                                 <li>
-                                    <a href="#">Morris.js Charts</a>
+                                    <a href="{{ path('fos_user_registration_register') }}">New User</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-list-ul fa-fw"></i> Categories <span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="{{ path('panch_agema_admin_category_list') }}">Categories List</a>
+                                </li>
+                                <li>
+                                    <a href="{{ path('panch_agema_admin_category_add') }}">Add New</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-shopping-cart fa-fw"></i> Products<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="{{ path('panch_agema_admin_product_list') }}">Products List</a>
+                                </li>
+                                <li>
+                                    <a href="{{ path('panch_agema_admin_product_add') }}">Add New</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
@@ -324,43 +348,16 @@
                                     <a href="#">Failed</a>
                                 </li>
                             </ul>
-                        </li>
-                        <!-- /.nav-second-level -->
-                        <li>
-                            <a href="#"><i class="fa fa-shopping-cart fa-fw"></i> Products<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="{{ path('panch_agema_admin_product_list') }}">Products List</a>
-                                </li>
-                                <li>
-                                    <a href="{{ path('panch_agema_admin_product_add') }}">Add New</a>
-                                </li>
-                            </ul>
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-list-ul fa-fw"></i> Categories <span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Charts<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="{{ path('panch_agema_admin_category_list') }}">Categories List</a>
+                                    <a href="#">Flot Charts</a>
                                 </li>
                                 <li>
-                                    <a href="{{ path('panch_agema_admin_category_add') }}">Add New</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-third-level -->
-                        </li>
-                            {#</ul>#}
-                        <!-- /.nav-second-level -->
-                        {#</li>#}
-                        <li>
-                            <a href="#"><i class="fa fa-users fa-fw"></i> Users<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="#">Users List</a>
-                                </li>
-                                <li>
-                                    <a href="#">New User</a>
+                                    <a href="#">Morris.js Charts</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
