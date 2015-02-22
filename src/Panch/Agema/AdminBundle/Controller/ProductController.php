@@ -39,9 +39,8 @@ class ProductController extends Controller
         }
 
         return [
-                'message_test'     => 'Action -ADD- work!',
                 'page_title'       => 'Add Product',
-                'form'             => $form->createView(),
+                'form'             => $form->createView()
         ];
     }
 
