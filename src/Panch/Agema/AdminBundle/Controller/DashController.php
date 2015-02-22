@@ -10,15 +10,18 @@ use Symfony\Component\Routing\Annotation\Route;
 class DashController extends Controller
 {
     /**
+     * This method render Admin Dashboard (Front Controller)
+     *
      * @Template()
      * @Route("/admin")
      * @Method("GET")
+     *
+     * @return array
      */
     public function dashAction()
     {
         return [
-                'title'    => 'Dashboard',
-                'message'  => 'It work!',
+                'page_title'    => 'Dashboard',
         ];
     }
 }
