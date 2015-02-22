@@ -143,3 +143,4 @@ iphp_file_store:
        thumbnail:
            upload_dir:  %kernel.root_dir%/../web/uploads/thumbnails/products
            upload_path: /uploads/thumbnails/products
+           namer: ~
