@@ -27,9 +27,13 @@ class IndexController extends Controller
     }
 
     /**
+     * This method render index page (Front Controller)
+     *
      * @Template()
      * @Route("/")
      * @Method("GET")
+     *
+     * @return array
      */
     public function indexAction()
     {
@@ -40,7 +44,11 @@ class IndexController extends Controller
     }
 
     /**
+     * This method checking access right for current User
+     *
      * @Template()
+     *
+     * @return array
      */
     public function permissionsAction()
     {
