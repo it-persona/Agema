@@ -175,6 +175,16 @@ ul.nav.navbar-nav.navbar-left li.active a:hover {
     padding: 8px;
 }
 
+div.img-thumbnail {
+    /*border-radius: 0;*/
+    margin-bottom: 4px;
+}
+
+div.img-thumbnail img {
+    margin: 5px;
+    background-color: #F5F5F5;
+}
+
 .thumbnail:hover {
     background-color: #EEEEEE;
     border: 1px solid #C4C8D3;
