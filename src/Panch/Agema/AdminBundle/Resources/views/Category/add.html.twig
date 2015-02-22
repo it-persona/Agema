@@ -8,7 +8,19 @@
                 <h3 class="page-header">{{ page_title }}</h3>
             </div>
             <!-- /.col-lg-12 -->
-            <strong>{{ message_test }}</strong>
+            <form class="form-horizontal" role="form" method="post">
+                <div class="form-group">
+                    {#{{ form_label(form.name, 'Category name', {'label_attr': {'class': 'col-sm-4 control-label'}}) }}#}
+                    {{ form_label(form.category_name, 'Category name', {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
+                    <div class="col-sm-5">
+                        {{ form_errors(form.category_name) }}
+                        {{ form_widget(form.category_name, { 'attr': {'class': 'form-control', 'placeholder': 'Category'}}) }} <br>
+
+                        <button type="submit" class="col-sm-12 btn btn-success btn-lg">Add Category</button>
+                        {{ form_rest(form) }}
+                    </div>
+                </div>
+            </form>
         </div>
         <!-- /.row -->
 

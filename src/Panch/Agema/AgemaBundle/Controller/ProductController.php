@@ -21,6 +21,14 @@ class ProductController extends Controller
      */
     public function getAction($slug)
     {
-        return ['product' => $this->get('doctrine')->getManager()->getRepository('PanchAgemaBundle:Product')->findOneBySlug($slug)];
+        $product = $this->getDoctrine()->getManager()->getRepository('PanchAgemaBundle:Product')->findOneBy(array('slug' => $slug));
+
+        if (!$product == true || is_null($product->getDeletedAt()) == false) {
+            throw $this->createNotFoundException('Opps! This product does not exist.');
+        }
+
+        return [
+                'product' => $product
+        ];
     }
 }

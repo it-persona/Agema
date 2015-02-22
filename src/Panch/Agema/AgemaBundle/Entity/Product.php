@@ -13,6 +13,7 @@ use Iphp\FileStoreBundle\Mapping\Annotation as FileStore;
  * @ORM\Table(name="agema_product")
  * @ORM\Entity
  * @FileStore\Uploadable
+ * @Gedmo\SoftDeleteable(fieldName="deletedAt", timeAware=false)
  */
 class Product
 {
@@ -126,6 +127,34 @@ class Product
      * @FileStore\UploadableField(mapping="thumbnail")
      **/
     private $thumbnail;
+
+    /**
+     * @ORM\Column(name="deletedAt", type="datetime", nullable=true)
+     */
+    private $deletedAt;
+
+    /**
+     * Set deletedAt
+     *
+     * @param \DateTime $deletedAt
+     * @return Product
+     */
+    public function setDeletedAt($deletedAt)
+    {
+        $this->deletedAt = $deletedAt;
+
+        return $this;
+    }
+
+    /**
+     * Get deletedAt
+     *
+     * @return \DateTime
+     */
+    public function getDeletedAt()
+    {
+        return $this->deletedAt;
+    }
 
     /**
      * @param array $thumbnail

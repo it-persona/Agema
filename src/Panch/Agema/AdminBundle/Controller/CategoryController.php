@@ -6,8 +6,9 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\Request;
+use Panch\Agema\AdminBundle\Form\CategoryType;
 use Panch\Agema\AgemaBundle\Entity\Category;
-use Panch\Agema\AgemaBundle\Entity\Product;
 
 class CategoryController extends Controller
 {
@@ -33,15 +34,30 @@ class CategoryController extends Controller
      *
      * @Template()
      * @Route("/admin/categories/add")
-     * @Method("GET")
+     * @Method(methods={"GET", "POST"})
      *
-     * @return array Demo data
+     * @param Request $request
+     * @return array
      */
-    public function addAction()
+    public function addAction(Request $request)
     {
+        $category = new Category();
+
+        $form = $this->createForm(new CategoryType(), $category);
+        $form->handleRequest($request);
+
+        if ($request->isMethod('POST')) {
+            if ($form->isValid()) {
+                $this->get('doctrine.orm.entity_manager')->persist($category);
+                $this->get('doctrine.orm.entity_manager')->flush();
+
+                return $this->redirect($this->generateUrl('panch_agema_admin_category_list'));
+            }
+        }
+
         return [
                 'page_title'    => 'Add Category',
-                'message_test'  => 'This work!'
+                'form'          => $form->createView(),
         ];
     }
 }
