@@ -4,12 +4,15 @@ namespace Panch\Agema\AgemaBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
+use Symfony\Component\Validator\Constraints as Assert;
+use Iphp\FileStoreBundle\Mapping\Annotation as FileStore;
 
 /**
  * Product
  *
  * @ORM\Table(name="agema_product")
  * @ORM\Entity
+ * @FileStore\Uploadable
  */
 class Product
 {
@@ -26,6 +29,8 @@ class Product
      * @var string
      *
      * @ORM\Column(name="title", type="string", length=50)
+     * @Assert\Type(type="string")
+     * @Assert\Length(min="5", max="50")
      */
     private $title;
 
@@ -115,6 +120,31 @@ class Product
      */
     private $slug;
 
+    /**
+     * @ORM\Column(name="thumbnail_image", type="array")
+     * @Assert\File( maxSize="20M")
+     * @FileStore\UploadableField(mapping="thumbnail")
+     **/
+    private $thumbnail;
+
+    /**
+     * @param array $thumbnail
+     * @return Product
+     */
+    public function setThumbnail($thumbnail)
+    {
+        $this->thumbnail = $thumbnail;
+
+        return $this;
+    }
+
+    /**
+     * @return array
+     */
+    public function getThumbnail()
+    {
+        return $this->thumbnail;
+    }
 
     /**
      * Get id

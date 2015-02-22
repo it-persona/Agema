@@ -22,6 +22,7 @@ class AppKernel extends Kernel
             new FOS\UserBundle\FOSUserBundle(),
             new Panch\Agema\AgemaBundle\PanchAgemaBundle(),
             new Panch\Agema\AdminBundle\PanchAgemaAdminBundle(),
+            new Iphp\FileStoreBundle\IphpFileStoreBundle()
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

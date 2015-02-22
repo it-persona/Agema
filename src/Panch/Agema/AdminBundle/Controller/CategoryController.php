@@ -12,7 +12,7 @@ use Panch\Agema\AgemaBundle\Entity\Product;
 class CategoryController extends Controller
 {
     /**
-     * Get list all categories
+     * This method render Categories list
      *
      * @Template()
      * @Route("/admin/categories/list")
@@ -23,13 +23,13 @@ class CategoryController extends Controller
     public function listAction()
     {
         return [
-                'title'      => 'Categories',
-                'categories' => $this->getDoctrine()->getRepository('PanchAgemaBundle:Category')->findAll()
+                'page_title'    => 'Categories List',
+                'categories'    => $this->getDoctrine()->getRepository('PanchAgemaBundle:Category')->findAll()
         ];
     }
 
     /**
-     * Add new category
+     * This method render and validating data of Form Adding new Category
      *
      * @Template()
      * @Route("/admin/categories/add")
@@ -40,8 +40,8 @@ class CategoryController extends Controller
     public function addAction()
     {
         return [
-                'title'   => 'Add Category',
-                'message' => 'This work!'
+                'page_title'    => 'Add Category',
+                'message_test'  => 'This work!'
         ];
     }
 }

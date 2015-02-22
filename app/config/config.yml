@@ -131,3 +131,15 @@ fos_user:
         username_canonicalizer: fos_user.util.canonicalizer.default
         token_generator:        fos_user.util.token_generator.default
         user_manager:           fos_user.user_manager.default
+
+# iPHPFileStoreBundle Configuration
+iphp_file_store:
+    mappings:
+       # Default mapping
+       photo:
+           upload_dir:  %kernel.root_dir%/../web/uploads
+           upload_path: /uploads
+       # Products thumbnail preview
+       thumbnail:
+           upload_dir:  %kernel.root_dir%/../web/uploads/thumbnails/products
+           upload_path: /uploads/thumbnails/products

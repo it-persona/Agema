@@ -12,12 +12,20 @@ use FOS\UserBundle\FOSUserEvents;
 
 class RegistrationController extends BaseController
 {
+    /**
+     * This method render and validating data of Form for register new User
+     *
+     * @param Request $request
+     * @return null|RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     */
     public function registerAction(Request $request)
     {
         /** @var $formFactory \FOS\UserBundle\Form\Factory\FactoryInterface */
         $formFactory = $this->get('fos_user.registration.form.factory');
+
         /** @var $userManager \FOS\UserBundle\Model\UserManagerInterface */
         $userManager = $this->get('fos_user.user_manager');
+
         /** @var $dispatcher \Symfony\Component\EventDispatcher\EventDispatcherInterface */
         $dispatcher = $this->get('event_dispatcher');
 
@@ -46,7 +54,8 @@ class RegistrationController extends BaseController
             $userManager->updateUser($user);
 
             if (null === $response = $event->getResponse()) {
-                $url = $this->generateUrl('fos_user_registration_confirmed');
+//                $url = $this->generateUrl('fos_user_registration_confirmed');
+                $url = $this->generateUrl('panch_agema_agema_index_index');
                 $response = new RedirectResponse($url);
             }
 
