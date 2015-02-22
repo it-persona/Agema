@@ -55,9 +55,37 @@ class ProductController extends Controller
      */
     public function listAction()
     {
+        $products = $this->getDoctrine()->getRepository('PanchAgemaBundle:Product')->findBy(array('deletedAt' => null));
+
+        if ($this->isGranted('ROLE_ADMIN') == true)
+        {
+            $products = $this->getDoctrine()->getRepository('PanchAgemaBundle:Product')->findAll();
+        }
+
         return [
                 'page_title'       => 'Products List',
-                'products'         => $this->getDoctrine()->getRepository('PanchAgemaBundle:Product')->findAll(),
+                'products'         => $products
         ];
+    }
+
+    /**
+     * This method soft-delete product by slug
+     *
+     * @Route("/admin/products/remove/{slug}")
+     * @Method("GET")
+     *
+     * @param $slug
+     * @return Route
+     */
+    public function removeAction($slug)
+    {
+         $product = $this->getDoctrine()->getManager()->getRepository('PanchAgemaBundle:Product')->findOneBy(array('slug' => $slug));
+
+         if (!null == $product && $product->getSlug() == $slug) {
+             $this->getDoctrine()->getManager()->remove($product);
+             $this->getDoctrine()->getManager()->flush();
+         }
+
+        return $this->redirect($this->generateUrl('panch_agema_admin_product_list'));
     }
 }
