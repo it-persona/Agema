@@ -30,7 +30,6 @@ class ProductType extends AbstractType
             ->add('thumbnail', 'file')
             ->add('category', 'entity', [
                 'mapped' => true,
-//                'data'   => $this->getName(),
                 'class'  => 'Panch\Agema\AgemaBundle\Entity\Category'
             ])
         ;

@@ -22,7 +22,7 @@ class ProductController extends Controller
      * @param Request $request
      * @return array
      */
-    public function addAction(Request $request)
+    public function newAction(Request $request)
     {
         $product = new Product();
 
@@ -53,7 +53,7 @@ class ProductController extends Controller
      *
      * @return array
      */
-    public function listAction()
+    public function getAction()
     {
         $products = $this->getDoctrine()->getRepository('PanchAgemaBundle:Product')->findBy(array('deletedAt' => null));
 
