@@ -1,3 +1,6 @@
+[![Build Status](https://scrutinizer-ci.com/g/it-persona/Agema/badges/build.png?b=dev)](https://scrutinizer-ci.com/g/it-persona/Agema/build-status/dev)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/it-persona/Agema/badges/quality-score.png?b=dev)](https://scrutinizer-ci.com/g/it-persona/Agema/?branch=dev)
+
 Company description
 ======================
 
