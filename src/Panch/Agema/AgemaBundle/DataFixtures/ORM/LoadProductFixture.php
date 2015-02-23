@@ -1,5 +1,7 @@
 <?php
 
+namespace Panch\Agema\AgemaBundle\DataFixtures\ORM;
+
 use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
