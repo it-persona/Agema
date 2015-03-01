@@ -25,6 +25,7 @@ class ProductController extends Controller
     public function addAction(Request $request)
     {
         $product = new Product();
+        $errors = null;
 
         $form = $this->createForm(new ProductType(), $product);
         $form->handleRequest($request);
@@ -35,12 +36,16 @@ class ProductController extends Controller
                 $this->get('doctrine.orm.entity_manager')->flush();
 
                 return $this->redirect($this->generateUrl('panch_agema_admin_product_list'));
+            } else {
+                $validator = $this->get('validator');
+                $errors = $validator->validate($product);
             }
         }
 
         return [
                 'page_title'       => 'Add Product',
-                'form'             => $form->createView()
+                'form'             => $form->createView(),
+                'errors'           => $errors
         ];
     }
 

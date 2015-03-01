@@ -48,3 +48,22 @@ ul.navbar-left li a {
 #dashboard-link::before {
     content: '';
 }
+
+.alert-icon-big {
+    font-size: xx-large;
+    float: left;
+    padding-right: 10px;
+}
+
+.lead.alert-title-big {
+    font-size: x-large;
+}
+
+.form-horizontal .has-feedback .form-control-feedback {
+    top: -2px;
+    z-index: 2;
+}
+
+.form-control-feedback {
+    z-index: -1;
+}
