@@ -26,7 +26,7 @@
                         <td>
                             <img src="{{ product.thumbnail.path }}" {{ product.thumbnail.height > 30 ? 'height="32"':''}} />
                         </td>
-                        <td><a href="{{ path('panch_agema_agema_product_get', {'slug': product.slug}) }}">{{ product.title }}</a></td>
+                        <td><a href="{{ path('panch_agema_agema_product_show', {'slug': product.slug}) }}">{{ product.title }}</a></td>
                         <td>{{ product.shortDescription }}</td>
                         <td>{{ product.category }}</td>
                         <td>{{ product.slug }}</td>
@@ -37,7 +37,7 @@
                                 </button>
                                 <ul class="dropdown-menu pull-right" role="menu">
                                     <li>
-                                        <a href="{{ path('panch_agema_agema_product_get', {'slug': product.slug}) }}"><span class="glyphicon glyphicon-eye-open"></span> Show</a>
+                                        <a href="{{ path('panch_agema_agema_product_show', {'slug': product.slug}) }}"><span class="glyphicon glyphicon-eye-open"></span> Show</a>
                                     </li>
                                     <li>
                                         <a href="#"><span class="glyphicon glyphicon-edit"></span> Edit</a>

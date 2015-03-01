@@ -103,9 +103,9 @@ class Category
     }
 
     /**
-     * Get student
+     * Get product
      *
-     * @return Product
+     * @return ArrayCollection
      */
     public function getProduct()
     {

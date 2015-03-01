@@ -84,13 +84,13 @@ class ProductController extends Controller
      */
     public function removeAction($slug)
     {
-         $product = $this->getDoctrine()->getManager()->getRepository('PanchAgemaBundle:Product')->findOneBy(array('slug' => $slug));
+            $product = $this->getDoctrine()->getManager()->getRepository('PanchAgemaBundle:Product')->findOneBy(array('slug' => $slug));
 
-         if (!null == $product && $product->getSlug() == $slug) {
-             $this->getDoctrine()->getManager()->remove($product);
-             $this->getDoctrine()->getManager()->flush();
-         }
+            if (!null == $product && $product->getSlug() == $slug) {
+                $this->getDoctrine()->getManager()->remove($product);
+                $this->getDoctrine()->getManager()->flush();
+            }
 
-        return $this->redirect($this->generateUrl('panch_agema_admin_product_list'));
+        return $this->redirect($this->generateUrl('panch_agema_admin_product_get'));
     }
 }

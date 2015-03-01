@@ -56,9 +56,9 @@ class IndexController extends Controller
             $user = $this->getUser();
             $role = $user->getRoles();
 
-            return ['user_roles' => $role];
+            return [ 'user_roles' => $role ];
         }
 
-        return [$this->get('router')->generate('panch_agema_agema_index_index')];
+        return [ $this->get('router')->generate('panch_agema_agema_index_index') ];
     }
 }

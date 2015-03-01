@@ -197,6 +197,7 @@ class Product
 
     /**
      * @ORM\Column(name="deletedAt", type="datetime", nullable=true)
+     * @Assert\Blank()
      */
     private $deletedAt;
 
@@ -276,10 +277,10 @@ class Product
     }
 
     /**
-     * Set category
+     * Get category
      *
-     * @param $category
-     * @return Product
+     * @param Category $category
+     * @return $this
      */
     public function setCategory(Category $category = null)
     {
