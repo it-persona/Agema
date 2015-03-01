@@ -1,0 +1,37 @@
+{% extends '@PanchAgemaAdmin/base.html.twig' %}
+
+{% block body %}
+    {% block container %}
+
+        <div class="row">
+            <div class="col-lg-12">
+                <h3 class="page-header">{{ page_title }}</h3>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Name</th>
+                            <th>Slug</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
+                        </tr>
+                    </thead>
+
+                    {% for category in categories %}
+                        <tr>
+                            <td>{{ category.id }}</td>
+                            <td>{{ category.categoryName }}</td>
+                            <td>{{ category.slug }}</td>
+                            <td><strong>[btnEdit]</strong></td>
+                            <td><strong>[btnDelete]</strong></td>
+                        </tr>
+                    {% endfor %}
+
+                </table>
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+        <!-- /.row -->
+
+    {% endblock container %}
+{% endblock body %}

@@ -22,3 +22,48 @@ a.dropdown-toggle i.fa.fa-caret-down {
 .nav>li>a.dropdown-toggle:focus {
     color: #3F3F3F;
 }
+
+ul.navbar-left li a {
+    font-size: large;
+    padding-bottom: 13px;
+}
+
+.navbar-brand {
+    background: url("images/admin-logo.png") no-repeat center transparent;
+    background-size: 100px;
+    margin-left: 20px;
+    margin-right: 20px;
+    opacity: 0.6;
+    width: 100px;
+}
+
+.navbar-brand:hover {
+    opacity: 1;
+}
+
+.sidebar ul li a.active::before {
+    content: '• '; /* alt  ► */
+}
+
+#dashboard-link::before {
+    content: '';
+}
+
+.alert-icon-big {
+    font-size: xx-large;
+    float: left;
+    padding-right: 10px;
+}
+
+.lead.alert-title-big {
+    font-size: x-large;
+}
+
+.form-horizontal .has-feedback .form-control-feedback {
+    top: -2px;
+    z-index: 2;
+}
+
+.form-control-feedback {
+    z-index: -1;
+}

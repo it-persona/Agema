@@ -4,12 +4,16 @@ namespace Panch\Agema\AgemaBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
+use Symfony\Component\Validator\Constraints as Assert;
+use Iphp\FileStoreBundle\Mapping\Annotation as FileStore;
 
 /**
  * Product
  *
  * @ORM\Table(name="agema_product")
  * @ORM\Entity
+ * @FileStore\Uploadable
+ * @Gedmo\SoftDeleteable(fieldName="deletedAt", timeAware=false)
  */
 class Product
 {
@@ -25,21 +29,36 @@ class Product
     /**
      * @var string
      *
-     * @ORM\Column(name="title", type="string", length=50)
+     * @ORM\Column(name="title", type="string", length=255)
+     * @Assert\Type(type="string")
+     * @Assert\Length(
+     *      min="5",
+     *      max="50",
+     *      minMessage="Title must be at least {{ limit }} characters long",
+     *      maxMessage="Title cannot be longer than {{ limit }} characters long")
+     * @Assert\NotBlank(message="Title should not be blank")
      */
     private $title;
 
     /**
-     * @var string
+     * @var ORM\ManyToOne
      *
-     * @ORM\Column(name="category", type="string", length=25)
+     * @ORM\ManyToOne(targetEntity="Panch\Agema\AgemaBundle\Entity\Category", inversedBy="product")
+     * @ORM\JoinColumn(name="category_id", referencedColumnName="id")
+     * @Assert\NotBlank(message="Category should not be blank")
      */
     private $category;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="short_description", type="string", length=50)
+     * @ORM\Column(name="short_description", type="string", length=255)
+     * @Assert\Length(
+     *      min="5",
+     *      max="50",
+     *      minMessage="Color correction must be at least {{ limit }} characters long",
+     *      maxMessage="Color correction cannot be longer than {{ limit }} characters long")
+     * @Assert\NotBlank(message="Description should not be blank")
      */
     private $shortDescription;
 
@@ -47,6 +66,13 @@ class Product
      * @var string
      *
      * @ORM\Column(name="color_correction", type="string", length=255)
+     * @Assert\Type(type="string")
+     * @Assert\Length(
+     *      min="5",
+     *      max="50",
+     *      minMessage="Color correction must be at least {{ limit }} characters long",
+     *      maxMessage="Color correction cannot be longer than {{ limit }} characters long")
+     * @Assert\NotBlank(message="Color correction should not be blank")
      */
     private $colorCorrection;
 
@@ -54,6 +80,13 @@ class Product
      * @var string
      *
      * @ORM\Column(name="clear_aperture", type="string", length=255)
+     * @Assert\Type(type="string")
+     * @Assert\Length(
+     *      min="5",
+     *      max="50",
+     *      minMessage="Clear aperture must be at least {{ limit }} characters long",
+     *      maxMessage="Clear aperture cannot be longer than {{ limit }} characters long")
+     * @Assert\NotBlank(message="Clear aperture should not be blank")
      */
     private $clearAperture;
 
@@ -61,6 +94,13 @@ class Product
      * @var string
      *
      * @ORM\Column(name="focal_length", type="string", length=255)
+     * @Assert\Type(type="string")
+     * @Assert\Length(
+     *      min="5",
+     *      max="50",
+     *      minMessage="Focal length must be at least {{ limit }} characters long",
+     *      maxMessage="Focal length cannot be longer than {{ limit }} characters long")
+     * @Assert\NotBlank(message="Focal length should not be blank")
      */
     private $focalLength;
 
@@ -68,6 +108,8 @@ class Product
      * @var float
      *
      * @ORM\Column(name="resolution", type="float")
+     * @Assert\Type(type="float", message="Resolution value {{ value }} is not a valid {{ type }}")
+     * @Assert\NotBlank(message="Resolution should not be blank")
      */
     private $resolution;
 
@@ -75,6 +117,13 @@ class Product
      * @var string
      *
      * @ORM\Column(name="magnification_range", type="string", length=255)
+     * @Assert\Type(type="string")
+     * @Assert\Length(
+     *      min="5",
+     *      max="50",
+     *      minMessage="Magnification range must be at least {{ limit }} characters long",
+     *      maxMessage="Magnification range cannot be longer than {{ limit }} characters long")
+     * @Assert\NotBlank(message="Magnification range should not be blank")
      */
     private $magnificationRange;
 
@@ -82,6 +131,8 @@ class Product
      * @var float
      *
      * @ORM\Column(name="limit_visual_magnitude", type="float")
+     * @Assert\Type(type="float", message="Visual magnitude limit {{ value }} is not a valid {{ type }}")
+     * @Assert\NotBlank(message="Visual magnitude limit should not be blank")
      */
     private $limitVisualMagnitude;
 
@@ -89,6 +140,13 @@ class Product
      * @var string
      *
      * @ORM\Column(name="tube", type="text")
+     * @Assert\Type(type="string")
+     * @Assert\Length(
+     *      min="5",
+     *      max="255",
+     *      minMessage="Tube description must be at least {{ limit }} characters long",
+     *      maxMessage="Tube description cannot be longer than {{ limit }} characters long")
+     * @Assert\NotBlank(message="Tube description should not be blank")
      */
     private $tube;
 
@@ -96,6 +154,13 @@ class Product
      * @var string
      *
      * @ORM\Column(name="focuser", type="text")
+     * @Assert\Type(type="string")
+     * @Assert\Length(
+     *      min="5",
+     *      max="255",
+     *      minMessage="Focuser description must be at least {{ limit }} characters long",
+     *      maxMessage="Focuser description cannot be longer than {{ limit }} characters long")
+     * @Assert\NotBlank(message="Focuser description should not be blank")
      */
     private $focuser;
 
@@ -103,15 +168,79 @@ class Product
      * @var string
      *
      * @ORM\Column(name="field_corrector", type="text")
+     * @Assert\Type(type="string")
+     * @Assert\Length(
+     *      min="5",
+     *      max="255",
+     *      minMessage="Field corrector description must be at least {{ limit }} characters long",
+     *      maxMessage="Field corrector description cannot be longer than {{ limit }} characters long")
+     * @Assert\NotBlank(message="Field corrector description should not be blank")
      */
     private $fieldCorrector;
 
     /**
+     * @var string
+     *
      * @Gedmo\Slug(fields={"title"})
      * @ORM\Column(name="slug", type="string", length=255)
      */
     private $slug;
 
+    /**
+     * @ORM\Column(name="thumbnail_image", type="array")
+     * @Assert\File(
+     *      maxSize="20M",
+     *      maxSizeMessage="File size should not exceed {{ limit }} {{ suffix }}")
+     * @FileStore\UploadableField(mapping="thumbnail")
+     */
+    private $thumbnail;
+
+    /**
+     * @ORM\Column(name="deletedAt", type="datetime", nullable=true)
+     */
+    private $deletedAt;
+
+    /**
+     * Set deletedAt
+     *
+     * @param \DateTime $deletedAt
+     * @return Product
+     */
+    public function setDeletedAt($deletedAt)
+    {
+        $this->deletedAt = $deletedAt;
+
+        return $this;
+    }
+
+    /**
+     * Get deletedAt
+     *
+     * @return \DateTime
+     */
+    public function getDeletedAt()
+    {
+        return $this->deletedAt;
+    }
+
+    /**
+     * @param array $thumbnail
+     * @return Product
+     */
+    public function setThumbnail($thumbnail)
+    {
+        $this->thumbnail = $thumbnail;
+
+        return $this;
+    }
+
+    /**
+     * @return array
+     */
+    public function getThumbnail()
+    {
+        return $this->thumbnail;
+    }
 
     /**
      * Get id
@@ -149,10 +278,10 @@ class Product
     /**
      * Set category
      *
-     * @param string $category
+     * @param $category
      * @return Product
      */
-    public function setCategory($category)
+    public function setCategory(Category $category = null)
     {
         $this->category = $category;
 
@@ -162,7 +291,7 @@ class Product
     /**
      * Get category
      *
-     * @return string
+     * @return Category
      */
     public function getCategory()
     {
