@@ -5,6 +5,7 @@ namespace Panch\Agema\AgemaBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Category
@@ -26,7 +27,14 @@ class Category
     /**
      * @var string
      *
-     * @ORM\Column(name="name", type="string", length=50)
+     * @ORM\Column(name="name", type="string", length=255)
+     * @Assert\Type(type="string")
+     * @Assert\Length(
+     *      min="5",
+     *      max="25",
+     *      minMessage="Category name must be at least {{ limit }} characters long",
+     *      maxMessage="Category name cannot be longer than {{ limit }} characters long")
+     * @Assert\NotBlank(message="Category name should not be blank")
      */
     private $name;
 

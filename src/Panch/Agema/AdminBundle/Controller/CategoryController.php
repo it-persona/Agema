@@ -42,6 +42,7 @@ class CategoryController extends Controller
     public function addAction(Request $request)
     {
         $category = new Category();
+        $errors = null;
 
         $form = $this->createForm(new CategoryType(), $category);
         $form->handleRequest($request);
@@ -52,12 +53,16 @@ class CategoryController extends Controller
                 $this->get('doctrine.orm.entity_manager')->flush();
 
                 return $this->redirect($this->generateUrl('panch_agema_admin_category_list'));
+            } else {
+                $validator = $this->get('validator');
+                $errors = $validator->validate($category);
             }
         }
 
         return [
                 'page_title'    => 'Add Category',
                 'form'          => $form->createView(),
+                'errors'        => $errors
         ];
     }
 }

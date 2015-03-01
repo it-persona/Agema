@@ -8,15 +8,27 @@
                 <h3 class="page-header">{{ page_title }}</h3>
             </div>
             <!-- /.col-lg-12 -->
-            <form class="form-horizontal" role="form" method="post">
-                <div class="form-group">
-                    {#{{ form_label(form.name, 'Category name', {'label_attr': {'class': 'col-sm-4 control-label'}}) }}#}
-                    {{ form_label(form.category_name, 'Category name', {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
-                    <div class="col-sm-5">
-                        {{ form_errors(form.category_name) }}
-                        {{ form_widget(form.category_name, { 'attr': {'class': 'form-control', 'placeholder': 'Category'}}) }} <br>
-
-                        <button type="submit" class="col-sm-12 btn btn-success btn-lg">Add Category</button>
+            <form class="form-horizontal" role="form" novalidate method="post">
+                {% block validation_alert %}
+                    {{ include('@PanchAgemaAdmin/includes/_validation_alert.html.twig', { 'errors': errors }) }}
+                {% endblock validation_alert %}
+                <!-- Validate inputs -->
+                <div class="form-group {% if errors is not empty %} has-error has-feedback {% endif %}">
+                    {{ form_label(form.category_name, 'Category name', {'label_attr': {
+                        'class': 'col-sm-3 control-label',
+                        'for': 'inputError2'
+                    }}) }}
+                    <div class="col-sm-5 input-group-sm">
+                        {{ form_widget(form.category_name, { 'attr': {
+                            'class': 'form-control',
+                            'id': 'inputError2',
+                            'aria-describedby': 'inputError1Status'
+                        }}) }}
+                        <span class="glyphicon glyphicon-remove form-control-feedback"></span>
+                        <span id="inputError2Status" class="sr-only">(error)</span> <br>
+                    {#</div>#}
+                        <!-- Submit -->
+                        <button type="submit" class="col-sm-12 btn btn-success btn-md">Add Category</button>
                         {{ form_rest(form) }}
                     </div>
                 </div>

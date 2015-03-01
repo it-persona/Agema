@@ -9,24 +9,9 @@
         </div>
         <!-- /.col-lg-12 -->
         <form class="form-horizontal" enctype="multipart/form-data" role="form" novalidate method="post">
-            <!-- Alert container for show validation errors messages -->
-            {% if errors is not empty %}
-                <div class="alert alert-danger" role="alert" aria-hidden="true">
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                    <span class="glyphicon glyphicon-exclamation-sign alert-icon-big" aria-hidden="true"></span>
-                    <span class="sr-only">Error:</span>
-                    <span class="lead alert-title-big">Failed validation</span><br><br>
-                    <span>Please correct the following errors:</span><br><br>
-                    <ol>
-                        {% for error in errors %}
-                            <li>{{ error.message }}</li>
-                        {% endfor %}
-                    </ol>
-                </div>
-            {% endif %}
-            <!-- /Alert -->
+            {% block validation_alert %}
+                {{ include('@PanchAgemaAdmin/includes/_validation_alert.html.twig', { 'errors': errors }) }}
+            {% endblock validation_alert %}
             <!-- Validate inputs -->
             <div class="form-group {% if form_errors(form.title) is not empty %} has-error has-feedback {% endif %}">
                 {{ form_label(form.title, 'Title', {'label_attr': {
