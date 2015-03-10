@@ -1,0 +1,77 @@
+{% extends '@PanchAgemaAdmin/base.html.twig' %}
+
+{% block body %}
+
+    {% block container %}
+        <div class="row">
+            <div class="col-lg-12">
+                <h3 class="page-header">{{ page_title|title }}</h3>
+
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Username</th>
+                        <th>Email</th>
+                        <th>Last Login</th>
+                        <th>Status</th>
+                        <th>Options</th>
+                    </tr>
+                    </thead>
+
+                    {% for user in users %}
+                        <tr {% if user.locked == true %} class="bkg-highlight-red" {% endif %}>
+                            <td>
+                                <strong>{{ user.id }}</strong>
+                            </td>
+                            {#<td>#}
+                                {#<img src="{{ user.thumbnail.path }}" {{ user.thumbnail.height > 30 ? 'height="32"':''}} />#}
+                            {#</td>#}
+                            {#<td>#}
+                                {#<a href="{{ path('panch_agema_agema_user_show', {'slug': user.slug}) }}">{{ user.title }}</a>#}
+                            {#</td>#}
+                            <td>{{ user.username|humanize }}</td>
+                            <td>{{ user.email }}</td>
+                            <td>{{ user.lastlogin|date("d.m.Y H:i:s") }}</td>
+
+                            {% if user.locked == true %}
+                                <td class="highlight-red">
+                                    <span class="glyphicon glyphicon-ban-circle"></span>
+                                </td>
+                            {% else %}
+                                <td class="highlight-green">
+                                    <span class="glyphicon glyphicon-ok-circle"></span>
+                                </td>
+                            {% endif %}
+
+                            <!-- Options menu -->
+                            <td align="center">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu pull-right" role="menu">
+                                        <li><a href="#"><span class="glyphicon glyphicon-eye-open"></span> View Profile</a>
+                                            {#<a href="{{ path('panch_agema_agema_user_show', {'slug': user.slug}) }}"><span class="glyphicon glyphicon-eye-open"></span> Show</a>#}
+                                        </li>
+                                        <li>
+                                            <a href="#"><span class="glyphicon glyphicon-edit"></span> Edit</a>
+                                        </li>
+                                        <li>
+                                            {#<a href="{{ path('panch_agema_admin_user_remove', {'slug': user.slug}) }}"{% if user.deletedAt is not null %} class="highlight-red" {% endif %}>#}
+                                                <a href="#"><span class="glyphicon glyphicon-trash"></span> Delete</a>
+                                            {#</a>#}
+                                        </li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </div>
+            <!-- /col-lg-12 -->
+        </div>
+        <!-- /row -->
+    {% endblock container %}
+
+{% endblock body%}

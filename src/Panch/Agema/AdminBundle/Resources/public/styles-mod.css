@@ -73,10 +73,16 @@ ul.navbar-left li a {
     margin-right: 3px;
 }
 
+.highlight-red,
 .dropdown-menu>li>a.highlight-red,
 .dropdown-menu>li>a.highlight-red>span {
     color: #c9302c;
     font-weight: bold;
+}
+
+.highlight-green {
+    color: #449d44;
+    font-size: large;
 }
 
 .bkg-highlight-red {
