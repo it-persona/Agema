@@ -68,18 +68,28 @@ ul.navbar-left li a {
     z-index: -1;
 }
 
-.dropdown-menu>li>a.highlight-red {
-    color: red;
+.dropdown-menu>li>a>span {
+    color: #000000;
+    margin-right: 3px;
+}
+
+.dropdown-menu>li>a.highlight-red,
+.dropdown-menu>li>a.highlight-red>span {
+    color: #c9302c;
     font-weight: bold;
 }
 
 .bkg-highlight-red {
-    background-color: lightpink;/*#dd6666;*/
-    color: red;
-    font-weight: bold;
+    background-color: lightpink;
+    color: #c9302c;
+    text-decoration: line-through;
 }
 
-.bkg-highlight-red a {
-    color: red;
-    font-weight: normal;
+.table>tbody>tr>td {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.table>thead:first-child>tr:first-child>th {
+    text-align: center;
 }
