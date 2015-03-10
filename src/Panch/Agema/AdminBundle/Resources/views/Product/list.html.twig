@@ -21,8 +21,10 @@
                 </thead>
 
                 {% for product in products %}
-                    <tr>
-                        <td>{{ product.id }}</td>
+                    <tr {% if product.deletedAt is not null %} class="bkg-highlight-red" {% endif %}>
+                        <td>
+                            <strong>{{ product.id }}</strong>
+                        </td>
                         <td>
                             <img src="{{ product.thumbnail.path }}" {{ product.thumbnail.height > 30 ? 'height="32"':''}} />
                         </td>
@@ -43,7 +45,9 @@
                                         <a href="#"><span class="glyphicon glyphicon-edit"></span> Edit</a>
                                     </li>
                                     <li>
-                                        <a href="{{ path('panch_agema_admin_product_remove', {'slug': product.slug}) }}"><span class="glyphicon glyphicon-trash"></span> Delete</a>
+                                        <a href="{{ path('panch_agema_admin_product_remove', {'slug': product.slug}) }}"{% if product.deletedAt is not null %} class="highlight-red" {% endif %}>
+                                            <span class="glyphicon glyphicon-trash"></span> Delete
+                                        </a>
                                     </li>
                                 </ul>
                             </div>

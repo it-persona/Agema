@@ -67,3 +67,19 @@ ul.navbar-left li a {
 .form-control-feedback {
     z-index: -1;
 }
+
+.dropdown-menu>li>a.highlight-red {
+    color: red;
+    font-weight: bold;
+}
+
+.bkg-highlight-red {
+    background-color: lightpink;/*#dd6666;*/
+    color: red;
+    font-weight: bold;
+}
+
+.bkg-highlight-red a {
+    color: red;
+    font-weight: normal;
+}

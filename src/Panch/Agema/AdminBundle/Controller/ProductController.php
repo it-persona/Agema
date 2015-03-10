@@ -91,6 +91,6 @@ class ProductController extends Controller
                 $this->getDoctrine()->getManager()->flush();
             }
 
-        return $this->redirect($this->generateUrl('panch_agema_admin_product_get'));
+        return $this->redirect($this->generateUrl('panch_agema_admin_product_list'));
     }
 }
