@@ -80,9 +80,13 @@ ul.navbar-left li a {
     font-weight: bold;
 }
 
+.highlight-green span,
+.highlight-red span {
+    font-size: large;
+}
+
 .highlight-green {
     color: #449d44;
-    font-size: large;
 }
 
 .bkg-highlight-red {

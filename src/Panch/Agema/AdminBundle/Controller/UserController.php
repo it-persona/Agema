@@ -54,4 +54,24 @@ class UserController extends Controller
 
         return $this->redirect($this->generateUrl('panch_agema_admin_user_list'));
     }
+
+    /**
+     * This method for lock or unlock User by Username
+     *
+     * @Route("/admin/user/lock/{userName}={lock}")
+     * @Method("GET")
+     *
+     * @param $userName
+     * @param boolean $lock
+     * @return Route
+     */
+    public function lockAction($userName, $lock)
+    {
+        $user = $this->get('fos_user.user_manager')->findUserBy(array('username' => $userName));
+        $user->setLocked($lock);
+
+        $this->get('fos_user.user_manager')->updateUser($user);
+
+        return $this->redirect($this->generateUrl('panch_agema_admin_user_list'));
+    }
 }

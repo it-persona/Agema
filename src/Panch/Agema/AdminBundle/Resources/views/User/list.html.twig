@@ -64,6 +64,19 @@
                                             <a href="#"><span class="glyphicon glyphicon-edit"></span> Edit</a>
                                         </li>
                                         <li>
+                                            {% if user.locked == false %}
+                                                <a href="{{ path('panch_agema_admin_user_lock', {
+                                                    'userName': user.username, 'lock': true }) }}">
+                                                    <span class="glyphicon glyphicon-ban-circle"></span> Lock
+                                                </a>
+                                            {% else %}
+                                                <a href="{{ path('panch_agema_admin_user_lock', {
+                                                    'userName': user.username, 'lock': 'false' }) }}">
+                                                    <span class="glyphicon glyphicon-ok-circle"></span> Unlock
+                                                </a>
+                                            {% endif %}
+                                        </li>
+                                        <li>
                                             {#<a href="{{ path('panch_agema_admin_user_delete', {'userName': user.username}) }}"{% if user.deletedAt is not null %} class="highlight-red" {% endif %}>#}
                                             <a href="{{ path('panch_agema_admin_user_delete', {'userName': user.username}) }}">
                                                 <span class="glyphicon glyphicon-trash"></span> Delete
