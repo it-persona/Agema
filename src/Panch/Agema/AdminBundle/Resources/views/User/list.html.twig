@@ -12,6 +12,7 @@
                     <tr>
                         <th>#</th>
                         <th>Username</th>
+                        <th>Role</th>
                         <th>Email</th>
                         <th>Last Login</th>
                         <th>Status</th>
@@ -31,6 +32,11 @@
                                 {#<a href="{{ path('panch_agema_agema_user_show', {'slug': user.slug}) }}">{{ user.title }}</a>#}
                             {#</td>#}
                             <td>{{ user.username|humanize }}</td>
+                            <td>
+                                {% for role in user.roles %}
+                                    {{ role|replace({'ROLE_' : " "})|capitalize }}
+                                {% endfor %}
+                            </td>
                             <td>{{ user.email }}</td>
                             <td>{{ user.lastlogin|date("d.m.Y H:i:s") }}</td>
 
@@ -58,9 +64,10 @@
                                             <a href="#"><span class="glyphicon glyphicon-edit"></span> Edit</a>
                                         </li>
                                         <li>
-                                            {#<a href="{{ path('panch_agema_admin_user_remove', {'slug': user.slug}) }}"{% if user.deletedAt is not null %} class="highlight-red" {% endif %}>#}
-                                                <a href="#"><span class="glyphicon glyphicon-trash"></span> Delete</a>
-                                            {#</a>#}
+                                            {#<a href="{{ path('panch_agema_admin_user_delete', {'userName': user.username}) }}"{% if user.deletedAt is not null %} class="highlight-red" {% endif %}>#}
+                                            <a href="{{ path('panch_agema_admin_user_delete', {'userName': user.username}) }}">
+                                                <span class="glyphicon glyphicon-trash"></span> Delete
+                                            </a>
                                         </li>
                                     </ul>
                                 </div>

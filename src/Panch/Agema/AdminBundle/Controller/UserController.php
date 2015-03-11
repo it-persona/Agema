@@ -2,6 +2,7 @@
 
 namespace Panch\Agema\AdminBundle\Controller;
 
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
@@ -9,6 +10,8 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 class UserController extends Controller
 {
     /**
+     * This method render Users list
+     *
      * @Route("/admin/users/list")
      * @Template()
      */
@@ -23,6 +26,8 @@ class UserController extends Controller
     }
 
     /**
+     * This method render and validating data of Form Adding new User
+     *
      * @Route("/admin/users/add")
      * @Template()
      */
@@ -31,5 +36,22 @@ class UserController extends Controller
         return [
                 'msg' => 'userAddAction'
         ];
+    }
+
+    /**
+     * This method delete User by Username
+     *
+     * @Route("/admin/user/delete/{userName}")
+     * @Method("GET")
+     *
+     * @param $userName
+     * @return Route
+     */
+    public function deleteAction($userName)
+    {
+        $user = $this->get('fos_user.user_manager')->findUserBy(array('username' => $userName));
+        $this->get('fos_user.user_manager')->deleteUser($user);
+
+        return $this->redirect($this->generateUrl('panch_agema_admin_user_list'));
     }
 }
