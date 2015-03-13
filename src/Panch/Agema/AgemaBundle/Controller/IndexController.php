@@ -37,9 +37,23 @@ class IndexController extends Controller
      */
     public function indexAction()
     {
+        /* TODO: Finding and sorting Products order by date adding to database
+        =========================================================================
+               1. Add property "dateAdded" to Product entity;
+               2. Sort searched products order by property "dateAdded";
+        =========================================================================
+        */
+
+        $products = $this->getDoctrine()->getManager()->getRepository('PanchAgemaBundle:Product')->findBy(
+            array ('deletedAt' => null,
+//                'category'  => $this->getDoctrine()->getManager()->getRepository('PanchAgemaBundle:Category')->findOneBy(array('name' => 'Reflectors'))
+            ),
+            array ('id' => 'DESC'),3);
+
         return [
-                'site_name'    => $this->siteName,
-                'page_title'   => $this->pageTitle,
+                'site_name'     => $this->siteName,
+                'page_title'    => $this->pageTitle,
+                'products'      => $products,
         ];
     }
 

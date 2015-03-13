@@ -242,3 +242,33 @@ a.btn.btn-primary.btn-lg {
     background-color: #3071a9;
     border-color: #285e8e;
 }
+div .thumbnail-wrapper img {
+    display: block;
+    margin: 0 auto;
+    min-height: 160px;
+    max-height: 160px;
+}
+.thumbnail {
+    opacity: .8;
+}
+.thumbnail:hover {
+    opacity: 1;
+}
+.thumbnail-wrapper {
+    min-height: 160px;
+    max-height: 160px;
+    margin-top: 5px;
+}
+
+.caption {
+    text-align: justify;
+    text-overflow: ellipsis;
+    overflow-x: hidden;
+}
+
+.product-description {
+    margin-bottom: 5px;
+    word-break: keep-all;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
