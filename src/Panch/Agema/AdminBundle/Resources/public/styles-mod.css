@@ -67,3 +67,39 @@ ul.navbar-left li a {
 .form-control-feedback {
     z-index: -1;
 }
+
+.dropdown-menu>li>a>span {
+    color: #000000;
+    margin-right: 3px;
+}
+
+.highlight-red,
+.dropdown-menu>li>a.highlight-red,
+.dropdown-menu>li>a.highlight-red>span {
+    color: #c9302c;
+    font-weight: bold;
+}
+
+.highlight-green span,
+.highlight-red span {
+    font-size: large;
+}
+
+.highlight-green {
+    color: #449d44;
+}
+
+.bkg-highlight-red {
+    background-color: lightpink;
+    color: #c9302c;
+    text-decoration: line-through;
+}
+
+.table>tbody>tr>td {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.table>thead:first-child>tr:first-child>th {
+    text-align: center;
+}

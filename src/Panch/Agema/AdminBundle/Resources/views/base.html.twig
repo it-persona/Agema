@@ -267,7 +267,10 @@
                         <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="#"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        <li>
+                            <a href="{{ path('fos_user_security_logout') }}">
+                                <i class="fa fa-sign-out fa-fw"></i> Logout
+                            </a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->
@@ -297,10 +300,11 @@
                             <a href="#"><i class="fa fa-users fa-fw"></i> Users<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="#">Users List</a>
+                                    <a href="{{ path('panch_agema_admin_user_list') }}">Users List</a>
                                 </li>
                                 <li>
-                                    <a href="{{ path('fos_user_registration_register') }}">New User</a>
+                                    {#<a href="{{ path('fos_user_registration_register') }}">New User</a>#}
+                                    <a href="{{ path('panch_agema_admin_user_add') }}">New User</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
