@@ -20,11 +20,11 @@ echo("                              /____/                " . $newLine);
 echo($newLine . $yellow . " [ r | e | l | o | a | d ] " . $newLine);
 echo($newLine . $red ."---- [ BEGIN SCRIPT ] ----" . $newLine . $clear);
 
-    runCommand("[1] - Drop database:", "app/console doctrine:database:drop --force");
-    runCommand("[2] - Create database:", "app/console doctrine:database:create");
-    runCommand("[3] - Create scheme:", "app/console doctrine:schema:create");
-    runCommand("[4] - Install assets:", "app/console assets:install");
-    runCommand("[5] - Load fixtures:", "php app/console doctrine:fixtures:load");
-    runCommand("[6] - Run unit tests:", "phpunit -c app src/Panch/");
+//    runCommand("[1] - Drop database:", "app/console doctrine:database:drop --force");
+    runCommand("[1] - Create database:", "app/console doctrine:database:create");
+    runCommand("[2] - Create scheme:", "app/console doctrine:schema:create");
+    runCommand("[3] - Install assets:", "app/console assets:install --symlink web");
+    runCommand("[4] - Load fixtures:", "php app/console doctrine:fixtures:load");
+//    runCommand("[6] - Run unit tests:", "phpunit -c app src/Panch/");
 
 echo($newLine . $red . '---- [ END SCRIPT] ----' . $newLine . $clear);
