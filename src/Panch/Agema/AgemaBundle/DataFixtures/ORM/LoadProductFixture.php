@@ -18,7 +18,6 @@ class LoadProductFixture extends AbstractFixture implements OrderedFixtureInterf
     public function load(ObjectManager $manager)
     {
         $category = new Category();
-
         $category->setCategoryName('Refractors');
 
         $product = new Product();
@@ -35,7 +34,9 @@ class LoadProductFixture extends AbstractFixture implements OrderedFixtureInterf
             ->setMagnificationRange('from 30X to 450X')
             ->setResolution(0.63)
             ->setTube('Aluminum, 200 mm OD, Light grey color, powder coating, baffled, flat black interior, special  design fine adjustment cell.')
-            ->setCategory($category);
+            ->setCategory($category)
+            ->setDeletedAt(null)
+            ->setThumbnail(null);
 
         $manager->persist($product);
         $manager->persist($category);

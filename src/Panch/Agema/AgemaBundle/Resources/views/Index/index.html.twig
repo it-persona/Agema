@@ -29,10 +29,14 @@
                             <div class="col-sm-6 col-md-4">
                                 <div class="thumbnail">
                                         <div class="thumbnail-wrapper">
-                                            <img src="{{ asset(product.thumbnail.path) }}" class="product-thumbnail" alt="Description test" />
+                                            {% if product.thumbnail is null %}
+                                                <img src="{{ asset('bundles/panchagema/images/interface/no_product_image.jpg') }}" />
+                                            {% else %}
+                                                <img src="{{ asset(product.thumbnail.path) }}" class="product-thumbnail" alt="Description test" />
+                                            {% endif %}
                                         </div>
                                     <div class="caption">
-                                        <h3>{{ product.title|title }}</h3><hr>
+                                        <h3>{{ product.title }}</h3><hr>
                                         <p class="product-description">{{ product.shortDescription|humanize}}</p>
                                         <a href="{{ path('panch_agema_agema_product_show', {'slug': product.slug}) }}" class="btn btn-primary" role="button">Specification</a>
                                     </div>

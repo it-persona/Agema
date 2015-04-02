@@ -2,14 +2,18 @@
 
 {% block body %}
     {% block container %}
-            <h3 class="page-header">{{ product.title }}</h3>
+            <h2><strong>{{ product.title }}</strong></h2><hr>
                 <div class="row">
-                    <div class="col-md-5">
+                    <div class="col-md-6">
                         <div class="img-thumbnail">
-                            <img src="{{ product.thumbnail.path }}" {{ product.thumbnail.height > 150 ? 'height="150"':''}} alt="{{ product.title }}" alt="{{ product.title }}">
+                            {% if product.thumbnail is null %}
+                                <img src="{{ asset('bundles/panchagema/images/interface/no_product_image.jpg') }}" height="350" alt="{{ product.title }}" alt="{{ product.title }}" />
+                            {% else %}
+                                <img src="{{ product.thumbnail.path }}" {{ product.thumbnail.height < 300 ? 'height="300"':''}} alt="{{ product.title }}" alt="{{ product.title }}" />
+                            {% endif %}
                         </div>
                         <br><br>
-                        <h4> <strong>Technical Specifications:</strong> </h4>
+                        <h3><strong>Technical Specifications</strong></h3><hr>
                         <dl class="dl-horizontal">
                             <dt>Description:</dt>
                             <dd>{{ product.shortDescription}}</dd>
@@ -44,28 +48,38 @@
                             <dt>Category:</dt>
                             <dd>{{ product.category }}</dd>
                         </dl>
-                        <h4> <strong>Accessories:</strong> </h4>
+                        <h4><strong>Accessories</strong></h4><hr>
                         <div class="row">
-                            <div class="col-sm-12 left">
-                                <div class="img-thumbnail">
-                                    <img src="{{ product.thumbnail.path }}" {{ product.thumbnail.height > 50 ? 'height="50"':''}} alt="{{ product.title }}" alt="{{ product.title }}">
+                            <div class="col-sm-12 left" style="padding: 0; margin: 0;">
+                                <div class="col-sm-4 left">
+                                    {% if product.thumbnail is null %}
+                                        <img src="{{ asset('bundles/panchagema/images/interface/no_product_image.jpg') }}" width="155" alt="{{ product.title }}" alt="{{ product.title }}" />
+                                    {% else %}
+                                        <img src="{{ product.thumbnail.path }}" {{ product.thumbnail.width > 155 ? 'width="155"':''}} alt="{{ product.title }}" alt="{{ product.title }}" />
+                                    {% endif %}
                                 </div>
-                                <div class="img-thumbnail">
-                                    <img src="{{ product.thumbnail.path }}" {{ product.thumbnail.height > 50 ? 'height="50"':''}} alt="{{ product.title }}" alt="{{ product.title }}">
+                                <div class="col-sm-4 left">
+                                    {% if product.thumbnail is null %}
+                                        <img src="{{ asset('bundles/panchagema/images/interface/no_product_image.jpg') }}" width="155" alt="{{ product.title }}" alt="{{ product.title }}" />
+                                    {% else %}
+                                        <img src="{{ product.thumbnail.path }}" {{ product.thumbnail.width > 155 ? 'width="155"':''}} alt="{{ product.title }}" alt="{{ product.title }}" />
+                                    {% endif %}
                                 </div>
-                                <div class="img-thumbnail">
-                                    <img src="{{ product.thumbnail.path }}" {{ product.thumbnail.height > 50 ? 'height="50"':''}} alt="{{ product.title }}" alt="{{ product.title }}">
+                                <div class="col-sm-4 left">
+                                    {% if product.thumbnail is null %}
+                                        <img src="{{ asset('bundles/panchagema/images/interface/no_product_image.jpg') }}" width="155" alt="{{ product.title }}" alt="{{ product.title }}" />
+                                    {% else %}
+                                        <img src="{{ product.thumbnail.path }}" {{ product.thumbnail.width > 155 ? 'width="155"':''}} alt="{{ product.title }}" alt="{{ product.title }}" />
+                                    {% endif %}
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="col-md-7">
+                    <div class="col-md-6">
                         <p>Second column content...</p>
                     </div>
 
                 </div>
-            {#</div>#}
-        {#</div>#}
     {% endblock container %}
 {% endblock body %}

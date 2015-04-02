@@ -176,13 +176,23 @@ ul.nav.navbar-nav.navbar-left li.active a:hover {
 }
 
 div.img-thumbnail {
-    /*border-radius: 0;*/
-    margin-bottom: 4px;
+    border: none;
+    vertical-align: middle;
+}
+
+.col-sm-4.left img {
+    border: 1px solid #C4C8D3;
+    margin-right: 8px;
+    max-width: 150px;
 }
 
 div.img-thumbnail img {
-    margin: 5px;
-    background-color: #F5F5F5;
+    border: 1px solid #ddd;
+    display: block;
+    margin: auto;
+    padding-right: 25px;
+    padding-left: 25px;
+    vertical-align: middle;
 }
 
 .thumbnail:hover {
@@ -245,8 +255,9 @@ a.btn.btn-primary.btn-lg {
 div .thumbnail-wrapper img {
     display: block;
     margin: 0 auto;
-    min-height: 160px;
-    max-height: 160px;
+    min-height: 183px;
+    max-height: 183px;
+    min-width: 96%;
 }
 .thumbnail {
     opacity: .8;

@@ -26,7 +26,11 @@
                             <strong>{{ product.id }}</strong>
                         </td>
                         <td>
-                            <img src="{{ product.thumbnail.path }}" {{ product.thumbnail.height > 30 ? 'height="32"':''}} />
+                            {% if product.thumbnail is null %}
+                                <img src="{{ asset('bundles/panchagema/images/interface/no_product_image.jpg') }}" height="32" />
+                            {% else %}
+                                <img src="{{ product.thumbnail.path }}" {{ product.thumbnail.height > 30 ? 'height="32"':''}} />
+                            {% endif %}
                         </td>
                         <td><a href="{{ path('panch_agema_agema_product_show', {'slug': product.slug}) }}">{{ product.title }}</a></td>
                         <td>{{ product.shortDescription }}</td>

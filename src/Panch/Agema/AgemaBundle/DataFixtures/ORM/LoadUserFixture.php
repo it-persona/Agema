@@ -18,23 +18,40 @@ class LoadUserFixture extends AbstractFixture implements OrderedFixtureInterface
      */
     public function load(ObjectManager $manager)
     {
-        $userName = 'test';
-        $userEmail = 'test@admin.net';
-        $userPassword = 'adminPassword';
+        $adminName = 'admin';
+        $adminEmail = 'admin@test.ua';
+        $adminPassword = 'adminpass';
 
+        $userName = 'user';
+        $userEmail = 'user@test.ua';
+        $userPassword = 'userpass';
+
+        $admin = new User();
         $user = new User();
+
+        $admin
+            ->setUsername($adminName)
+            ->setUsernameCanonical($adminName)
+            ->setEmail($adminEmail)
+            ->setEmailCanonical($adminEmail)
+            ->setRoles(array('ROLE_ADMIN'))
+            ->setEnabled(true)
+            ->setPassword($adminPassword)
+            ->setPlainPassword($adminPassword);
 
         $user
             ->setUsername($userName)
             ->setUsernameCanonical($userName)
             ->setEmail($userEmail)
             ->setEmailCanonical($userEmail)
-            ->setRoles(array('ROLE_ADMIN'))
+            ->setRoles(array('ROLE_USER'))
             ->setEnabled(true)
             ->setPassword($userPassword)
             ->setPlainPassword($userPassword);
 
+        $manager->persist($admin);
         $manager->persist($user);
+
         $manager->flush();
     }
 
