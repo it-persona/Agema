@@ -27,7 +27,7 @@
                         </td>
                         <td>
                             {% if product.thumbnail is null %}
-                                <img src="{{ asset('bundles/panchagema/images/interface/no_product_image.jpg') }}" height="32" />
+                                <img src="{{ asset('bundles/panchagema/images/interface/no_image_available.png') }}" height="32" />
                             {% else %}
                                 <img src="{{ product.thumbnail.path }}" {{ product.thumbnail.height > 30 ? 'height="32"':''}} />
                             {% endif %}

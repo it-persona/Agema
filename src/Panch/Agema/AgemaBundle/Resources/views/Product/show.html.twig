@@ -7,7 +7,7 @@
                     <div class="col-md-6">
                         <div class="img-thumbnail">
                             {% if product.thumbnail is null %}
-                                <img src="{{ asset('bundles/panchagema/images/interface/no_product_image.jpg') }}" height="350" alt="{{ product.title }}" alt="{{ product.title }}" />
+                                <img src="{{ asset('bundles/panchagema/images/interface/no_image_available.png') }}" height="350" alt="{{ product.title }}" alt="{{ product.title }}" />
                             {% else %}
                                 <img src="{{ product.thumbnail.path }}" {{ product.thumbnail.height < 300 ? 'height="300"':''}} alt="{{ product.title }}" alt="{{ product.title }}" />
                             {% endif %}
