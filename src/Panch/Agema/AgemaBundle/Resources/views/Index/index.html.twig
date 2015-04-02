@@ -30,7 +30,7 @@
                                 <div class="thumbnail">
                                         <div class="thumbnail-wrapper">
                                             {% if product.thumbnail is null %}
-                                                <img src="{{ asset('bundles/panchagema/images/interface/no_product_image.jpg') }}" />
+                                                <img src="{{ asset('bundles/panchagema/images/interface/no_image_available.png') }}" />
                                             {% else %}
                                                 <img src="{{ asset(product.thumbnail.path) }}" class="product-thumbnail" alt="Description test" />
                                             {% endif %}

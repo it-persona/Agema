@@ -193,6 +193,7 @@ div.img-thumbnail img {
     padding-right: 25px;
     padding-left: 25px;
     vertical-align: middle;
+    max-width: 100%
 }
 
 .thumbnail:hover {
@@ -253,11 +254,9 @@ a.btn.btn-primary.btn-lg {
     border-color: #285e8e;
 }
 div .thumbnail-wrapper img {
-    display: block;
-    margin: 0 auto;
-    min-height: 183px;
-    max-height: 183px;
-    min-width: 96%;
+    margin-top: 5px;
+    height: 200px;
+    width: 200px;
 }
 .thumbnail {
     opacity: .8;
@@ -266,9 +265,9 @@ div .thumbnail-wrapper img {
     opacity: 1;
 }
 .thumbnail-wrapper {
-    min-height: 160px;
-    max-height: 160px;
-    margin-top: 5px;
+    height: 200px;
+    width: 200px;
+    margin: 0 auto;
 }
 
 .caption {
