@@ -166,10 +166,6 @@ ul.nav.navbar-nav.navbar-left li.active a:hover {
     margin-top: 10px;
 }
 
-.thumbnails-wrapper {
-    margin: 20px 30px 10px 30px;
-}
-
 .thumbnail {
     background-color: #F5F5F5;
     padding: 8px;
@@ -232,6 +228,7 @@ a.btn.btn-primary.btn-lg {
 
 .jumbotron p {
     font-size: 15px;
+    text-align: justify;
 }
 
 .btn.btn-primary.btn-lg {
@@ -277,8 +274,13 @@ div .thumbnail-wrapper img {
 }
 
 .product-description {
-    margin-bottom: 5px;
+    margin: 18px 10px 10px;
     word-break: keep-all;
     text-overflow: ellipsis;
     overflow: hidden;
+    text-align: justify;
+}
+
+.dl-horizontal dd {
+    text-align: justify;
 }
