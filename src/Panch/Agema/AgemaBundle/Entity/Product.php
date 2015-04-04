@@ -45,9 +45,6 @@ class Product
      * @ORM\JoinColumn(name="category_id", referencedColumnName="id")
      * @Assert\NotBlank(message="Category should not be blank")
      */
-    /**
-     * @var
-     */
     private $category;
 
     /**
