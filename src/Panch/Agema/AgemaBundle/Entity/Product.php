@@ -41,12 +41,12 @@ class Product
     private $title;
 
     /**
-     * @var ORM\ManyToOne
-     *
      * @ORM\ManyToOne(targetEntity="Panch\Agema\AgemaBundle\Entity\Category", inversedBy="product")
      * @ORM\JoinColumn(name="category_id", referencedColumnName="id")
      * @Assert\NotBlank(message="Category should not be blank")
-     * @Assert\Type(type="object")
+     */
+    /**
+     * @var
      */
     private $category;
 
