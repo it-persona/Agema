@@ -51,6 +51,7 @@ class Category
      */
     private $slug;
 
+
     public function __construct()
     {
         $this->product = new ArrayCollection();
@@ -70,7 +71,7 @@ class Category
      * Set product category name
      *
      * @param string $name
-     * @return Product
+     * @return self
      */
     public function setCategoryName($name)
     {
@@ -105,7 +106,7 @@ class Category
     /**
      * Get product
      *
-     * @return ArrayCollection
+     * @return \Panch\Agema\AgemaBundle\Entity\Category
      */
     public function getProduct()
     {
@@ -116,7 +117,7 @@ class Category
      * Set slug
      *
      * @param string $slug
-     * @return Category by slug
+     * @return Category
      */
     public function setSlug($slug)
     {
@@ -135,6 +136,9 @@ class Category
         return $this->slug;
     }
 
+    /**
+     * @return string
+     */
     public function __toString()
     {
         return $this->getCategoryName();

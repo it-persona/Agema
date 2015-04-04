@@ -34,12 +34,10 @@ class LoadProductFixture extends AbstractFixture implements OrderedFixtureInterf
             ->setMagnificationRange('from 30X to 450X')
             ->setResolution(0.63)
             ->setTube('Aluminum, 200 mm OD, Light grey color, powder coating, baffled, flat black interior, special  design fine adjustment cell.')
-            ->setCategory($category)
-            ->setDeletedAt(null)
-            ->setThumbnail(null);
+            ->setCategory($category);
 
-        $manager->persist($product);
         $manager->persist($category);
+        $manager->persist($product);
         $manager->flush();
     }
 

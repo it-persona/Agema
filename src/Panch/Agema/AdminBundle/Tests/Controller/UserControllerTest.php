@@ -6,17 +6,11 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 class UserControllerTest extends WebTestCase
 {
-    public function testList()
+    public function testListUsers()
     {
         $client = static::createClient();
 
-        $crawler = $client->request('GET', '/admin/users/list');
-    }
-
-    public function testAdd()
-    {
-        $client = static::createClient();
-
-        $crawler = $client->request('GET', '/admin/users/add');
+        $client->request('GET', '/admin/products/list');
+        $this->assertEquals(200, $client->getResponse()->getStatusCode());
     }
 }

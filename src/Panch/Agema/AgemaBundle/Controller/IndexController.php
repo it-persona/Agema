@@ -38,9 +38,7 @@ class IndexController extends Controller
     public function indexAction()
     {
         $products = $this->getDoctrine()->getManager()->getRepository('PanchAgemaBundle:Product')->findBy(
-            array ('deletedAt' => null,
-//                'category'  => $this->getDoctrine()->getManager()->getRepository('PanchAgemaBundle:Category')->findOneBy(array('name' => 'Reflectors'))
-            ),
+            array ('deletedAt' => null),
             array ('id' => 'DESC'), 3);
 
         return [

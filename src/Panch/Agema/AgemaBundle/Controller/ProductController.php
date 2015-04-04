@@ -23,7 +23,7 @@ class ProductController extends Controller
     {
         $product = $this->getDoctrine()->getManager()->getRepository('PanchAgemaBundle:Product')->findOneBy(array('slug' => $slug));
 
-        if (!$product == true || $product->getDeletedAt() != null) {
+        if (!$product === true || $product->getDeletedAt() != null) {
             throw $this->createNotFoundException('Opps! This product does not exist.');
         }
 

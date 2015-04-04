@@ -46,6 +46,7 @@ class Product
      * @ORM\ManyToOne(targetEntity="Panch\Agema\AgemaBundle\Entity\Category", inversedBy="product")
      * @ORM\JoinColumn(name="category_id", referencedColumnName="id")
      * @Assert\NotBlank(message="Category should not be blank")
+     * @Assert\Type(type="object")
      */
     private $category;
 
@@ -279,7 +280,7 @@ class Product
     /**
      * Get category
      *
-     * @param Category $category
+     * @param \Panch\Agema\AgemaBundle\Entity\Category $category
      * @return $this
      */
     public function setCategory(Category $category = null)

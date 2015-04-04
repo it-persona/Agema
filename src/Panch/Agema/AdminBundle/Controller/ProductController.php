@@ -62,7 +62,7 @@ class ProductController extends Controller
     {
         $products = $this->getDoctrine()->getRepository('PanchAgemaBundle:Product')->findBy(array('deletedAt' => null));
 
-        if ($this->isGranted('ROLE_ADMIN') == true)
+        if ($this->isGranted('ROLE_ADMIN') === true)
         {
             $products = $this->getDoctrine()->getRepository('PanchAgemaBundle:Product')->findAll();
         }
