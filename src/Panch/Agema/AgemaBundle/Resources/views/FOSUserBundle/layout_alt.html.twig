@@ -36,13 +36,31 @@
 <body>
 
 {% block body %}
-<div class="col-lg-9">
-    <h3 class="text-center">
-        <strong>LAYOUT #2: Dashboard Template</strong>
-    </h3>
+<div id="wrapper">
+    {% block navbar %}
+        {% include '@PanchAgemaAdmin/includes/navbar.html.twig' %}
+    {% endblock navbar %}
+    <div id="page-wrapper">
+        {% block fos_user_content %}{% endblock %}
+        <footer>
+            <small>&copy; 2015 IT-PERSONA, Lab.</small>
+        </footer>
+    </div>
+    <!-- /#page-wrapper -->
+<!-- /#page-wrapper -->
 </div>
-
 {% endblock body %}
+
+{% block javascripts %}
+    <!-- jQuery -->
+    <script src="{{ asset('bundles/panchagema/js/jquery-1.11.1.min.js') }}"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{{ asset('bundles/panchagema/js/bootstrap.min.js') }}"></script>
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="{{ asset('bundles/panchagemaadmin/bower_components/metisMenu/dist/metisMenu.min.js') }}"></script>
+    <!-- Custom Theme JavaScript -->
+    <script src="{{ asset('bundles/panchagemaadmin/dist/js/sb-admin-2.js') }}"></script>
+{% endblock javascripts %}
 
 </body>
 </html>
