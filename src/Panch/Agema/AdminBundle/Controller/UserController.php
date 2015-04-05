@@ -26,19 +26,6 @@ class UserController extends Controller
     }
 
     /**
-     * This method render and validating data of Form Adding new User
-     *
-     * @Route("/admin/users/add")
-     * @Template()
-     */
-    public function addAction()
-    {
-        return [
-                'msg' => 'userAddAction'
-        ];
-    }
-
-    /**
      * This method delete User by Username
      *
      * @Route("/admin/user/delete/{userName}")
