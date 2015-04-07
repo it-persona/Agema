@@ -42,7 +42,7 @@ class Product
 
     /**
      * @ORM\ManyToOne(targetEntity="Panch\Agema\AgemaBundle\Entity\Category", inversedBy="product")
-     * @ORM\JoinColumn(name="category_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="category_id", referencedColumnName="id", onDelete="SET NULL")
      * @Assert\NotBlank(message="Category should not be blank")
      */
     private $category;

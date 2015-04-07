@@ -39,7 +39,7 @@ class Category
     private $name;
 
     /**
-     * @ORM\OneToMany(targetEntity="Panch\Agema\AgemaBundle\Entity\Product", mappedBy="category")
+     * @ORM\OneToMany(targetEntity="Panch\Agema\AgemaBundle\Entity\Product", mappedBy="category", cascade={"persist"})
      */
     protected $product;
 
@@ -52,10 +52,10 @@ class Category
     private $slug;
 
 
-    public function __construct()
-    {
-        $this->product = new ArrayCollection();
-    }
+//    public function __construct()
+//    {
+//        $this->product = new ArrayCollection();
+//    }
 
     /**
      * Get id
@@ -86,6 +86,29 @@ class Category
      * @return string
      */
     public function getCategoryName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Set product category name
+     *
+     * @param string $name
+     * @return self
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get product category name
+     *
+     * @return string
+     */
+    public function getName()
     {
         return $this->name;
     }
