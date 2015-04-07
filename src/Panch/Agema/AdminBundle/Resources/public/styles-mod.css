@@ -10,6 +10,12 @@ a i.fa {
     font-size: large;
 }
 
+/*li a i.fa,*/
+a span.glyphicon
+a span.fa {
+    font-size: 15px;
+}
+
 .dropdown-menu li a i.fa {
     font-size: inherit;
 }
@@ -69,7 +75,7 @@ ul.navbar-left li a {
 }
 
 .dropdown-menu>li>a>span {
-    color: #000000;
+    color: #333;
     margin-right: 3px;
 }
 
@@ -80,8 +86,7 @@ ul.navbar-left li a {
     font-weight: bold;
 }
 
-.highlight-green span,
-.highlight-red span {
+.large-text {
     font-size: large;
 }
 
@@ -89,10 +94,9 @@ ul.navbar-left li a {
     color: #449d44;
 }
 
-.bkg-highlight-red {
-    background-color: lightpink;
+tr.danger td {
     color: #c9302c;
-    text-decoration: line-through;
+    /*text-decoration: line-through;*/
 }
 
 .table>tbody>tr>td {

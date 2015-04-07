@@ -25,15 +25,18 @@
                         {{ form_widget(form.category_name, { 'attr': {
                             'class': 'form-control',
                             'id': 'inputError2',
+                            'value': data,
                             'aria-describedby': 'inputError1Status'
                         }}) }}
                         <span class="glyphicon glyphicon-remove form-control-feedback"></span>
                         <span id="inputError2Status" class="sr-only">(error)</span> <br>
                         <!-- Submit -->
-                        <button type="submit" class="col-sm-12 btn btn-success btn-md">Add Category</button>
+                        <button type="submit" class="col-sm-12 btn btn-success btn-md">Update Category</button>
                         {{ form_rest(form) }}
                     </div>
+                    <!-- /col-sm-5 input-group-sm -->
                 </div>
+                <!-- /form-group -->
             </form>
         </div>
         <!-- /.row -->

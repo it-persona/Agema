@@ -21,7 +21,7 @@
                 </thead>
 
                 {% for product in products %}
-                    <tr {% if product.deletedAt is not null %} class="bkg-highlight-red" {% endif %}>
+                    <tr {% if product.deletedAt is not null %} class="danger" {% endif %}>
                         <td>
                             <strong>{{ product.id }}</strong>
                         </td>
@@ -36,6 +36,7 @@
                         <td>{{ product.shortDescription }}</td>
                         <td>{{ product.category }}</td>
                         <td>{{ product.slug }}</td>
+                        <!-- Options menu -->
                         <td align="center">
                             <div class="btn-group">
                                 <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">
@@ -46,7 +47,7 @@
                                         <a href="{{ path('panch_agema_agema_product_show', {'slug': product.slug}) }}"><span class="glyphicon glyphicon-eye-open"></span> Show</a>
                                     </li>
                                     <li>
-                                        <a href="#"><span class="glyphicon glyphicon-edit"></span> Edit</a>
+                                        <a href="#"><span class="glyphicon glyphicon-pencil"></span> Edit</a>
                                     </li>
                                     <li>
                                         <a href="{{ path('panch_agema_admin_product_remove', {'slug': product.slug}) }}"{% if product.deletedAt is not null %} class="highlight-red" {% endif %}>
@@ -56,8 +57,10 @@
                                 </ul>
                             </div>
                         </td>
+                        <!-- End Options menu -->
                     </tr>
                 {% endfor %}
+
             </table>
         </div>
         <!-- /.col-lg-12 -->

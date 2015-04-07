@@ -12,8 +12,7 @@
                             <th>#</th>
                             <th>Name</th>
                             <th>Slug</th>
-                            <th>Edit</th>
-                            <th>Delete</th>
+                            <th>Options</th>
                         </tr>
                     </thead>
 
@@ -22,8 +21,28 @@
                             <td>{{ category.id }}</td>
                             <td>{{ category.categoryName }}</td>
                             <td>{{ category.slug }}</td>
-                            <td><strong>[btnEdit]</strong></td>
-                            <td><strong>[btnDelete]</strong></td>
+                            <!-- Options menu -->
+                            <td align="center">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu pull-right" role="menu">
+                                        <li>
+                                            <a href=""><span class="glyphicon glyphicon-list"></span> List</a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ path('panch_agema_admin_category_update', {'slug': category.slug}) }}"><span class="glyphicon glyphicon-pencil"></span> Edit</a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ path('panch_agema_admin_category_remove', {'slug': category.slug}) }}">
+                                                <span class="glyphicon glyphicon-trash"></span> Delete
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </td>
+                            <!-- End Options menu -->
                         </tr>
                     {% endfor %}
 

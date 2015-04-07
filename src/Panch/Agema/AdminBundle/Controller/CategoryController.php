@@ -5,6 +5,7 @@ namespace Panch\Agema\AdminBundle\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Symfony\Component\PropertyAccess\PropertyAccessor;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 use Panch\Agema\AdminBundle\Form\CategoryType;
@@ -54,8 +55,7 @@ class CategoryController extends Controller
 
                 return $this->redirect($this->generateUrl('panch_agema_admin_category_list'));
             } else {
-                $validator = $this->get('validator');
-                $errors = $validator->validate($category);
+                $errors = $this->get('validator')->validate($category);
             }
         }
 
@@ -65,4 +65,76 @@ class CategoryController extends Controller
                 'errors'        => $errors
         ];
     }
+
+    /**
+     * @Template()
+     * @Route("/admin/category/update={slug}")
+     * @Method(methods={"GET", "POST"})
+     *
+     * @param Request $request
+     * @param string $slug
+     * @param null $errors
+     * @return array|\Symfony\Component\HttpFoundation\RedirectResponse
+     */
+    public function updateAction(Request $request, $slug, $errors = null)
+    {
+        $data = $this->getDoctrine()->getRepository('PanchAgemaBundle:Category')->findOneBy(array('slug' => $slug));
+
+        $category = new Category();
+
+        $form = $this->createForm(new CategoryType(), $category);
+        $form->handleRequest($request);
+
+        if ($request->isMethod('POST')) {
+            if ($form->isValid() && $data == !null) {
+                $accessor = new PropertyAccessor();
+                $reflect = new \ReflectionClass($data);
+
+                $properties = $reflect->getProperties(\ReflectionProperty::IS_PUBLIC | \ReflectionProperty::IS_PROTECTED | \ReflectionProperty::IS_PRIVATE);
+
+                foreach ($properties as $property) {
+                    $propertyName = $property->getName();
+                    $value = $accessor->getValue($category, $propertyName);
+
+                    if ($value == !null && $value !== $accessor->getValue($data, $propertyName)) {
+                        $accessor->setValue($data, $propertyName, $value);
+                    }
+                }
+
+                $this->get('doctrine.orm.entity_manager')->flush();
+
+                return $this->redirect($this->generateUrl('panch_agema_admin_category_list'));
+            }
+                $errors = $this->get('validator')->validate($category);
+        }
+
+        return [
+                'page_title'    => 'Edit Category',
+                'data'          => $data->getName(),
+                'form'          => $form->createView(),
+                'errors'        => $errors,
+        ];
+    }
+
+    /**
+     * This method delete category by slug
+     *
+     * @Route("/admin/category/remove/{slug}")
+     * @Method("GET")
+     *
+     * @param $slug
+     * @return Route
+     */
+    public function removeAction($slug)
+    {
+        $category = $this->getDoctrine()->getManager()->getRepository('PanchAgemaBundle:Category')->findOneBy(array('slug' => $slug));
+
+        if (!null == $category && $category->getSlug() == $slug) {
+            $this->getDoctrine()->getManager()->remove($category);
+            $this->getDoctrine()->getManager()->flush();
+        }
+
+        return $this->redirect($this->generateUrl('panch_agema_admin_category_list'));
+    }
+
 }
