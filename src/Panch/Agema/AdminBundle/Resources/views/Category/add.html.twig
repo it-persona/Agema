@@ -8,6 +8,9 @@
                 <h3 class="page-header">{{ page_title }}</h3>
             </div>
             <!-- /.col-lg-12 -->
+        </div>
+        <!-- /.row -->
+        <div class="row">
             <form class="form-horizontal" role="form" novalidate method="post">
                 {% block validation_alert %}
                     {{ include('@PanchAgemaAdmin/includes/_validation_alert.html.twig', { 'errors': errors }) }}
@@ -26,7 +29,6 @@
                         }}) }}
                         <span class="glyphicon glyphicon-remove form-control-feedback"></span>
                         <span id="inputError2Status" class="sr-only">(error)</span> <br>
-                    {#</div>#}
                         <!-- Submit -->
                         <button type="submit" class="col-sm-12 btn btn-success btn-md">Add Category</button>
                         {{ form_rest(form) }}
