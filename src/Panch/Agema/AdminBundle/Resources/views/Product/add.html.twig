@@ -8,6 +8,9 @@
             <h3 class="page-header">{{ page_title }}</h3>
         </div>
         <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+    <div class="row">
         <form class="form-horizontal" enctype="multipart/form-data" role="form" novalidate method="post">
             {% block validation_alert %}
                 {{ include('@PanchAgemaAdmin/includes/_validation_alert.html.twig', { 'errors': errors }) }}
