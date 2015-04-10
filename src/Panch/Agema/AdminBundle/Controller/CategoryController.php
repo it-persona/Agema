@@ -87,20 +87,7 @@ class CategoryController extends Controller
 
         if ($request->isMethod('POST')) {
             if ($form->isValid() && $data == !null) {
-                $accessor = new PropertyAccessor();
-                $reflect = new \ReflectionClass($data);
-
-                $properties = $reflect->getProperties(\ReflectionProperty::IS_PUBLIC | \ReflectionProperty::IS_PROTECTED | \ReflectionProperty::IS_PRIVATE);
-
-                foreach ($properties as $property) {
-                    $propertyName = $property->getName();
-                    $value = $accessor->getValue($category, $propertyName);
-
-                    if ($value == !null && $value !== $accessor->getValue($data, $propertyName)) {
-                        $accessor->setValue($data, $propertyName, $value);
-                    }
-                }
-
+                $this->get('app_admin.services.data_manager')->updateObject($category, $data);
                 $this->get('doctrine.orm.entity_manager')->flush();
 
                 return $this->redirect($this->generateUrl('panch_agema_admin_category_list'));
@@ -110,9 +97,9 @@ class CategoryController extends Controller
 
         return [
                 'page_title'    => 'Edit Category',
-                'data'          => $data->getName(),
+                'category_name' => $data->getName(),
                 'form'          => $form->createView(),
-                'errors'        => $errors,
+                'errors'        => $errors
         ];
     }
 
@@ -122,17 +109,17 @@ class CategoryController extends Controller
      * @Route("/admin/category/remove/{slug}")
      * @Method("GET")
      *
-     * @param $slug
+     * @param string $slug
      * @return Route
      */
     public function removeAction($slug)
     {
-        $category = $this->getDoctrine()->getManager()->getRepository('PanchAgemaBundle:Category')->findOneBy(array('slug' => $slug));
+        $em = $this->get('doctrine.orm.entity_manager');
 
-        if (!null == $category && $category->getSlug() == $slug) {
-            $this->getDoctrine()->getManager()->remove($category);
-            $this->getDoctrine()->getManager()->flush();
-        }
+        $category = $em->getRepository('PanchAgemaBundle:Category')->findOneBy(array('slug' => $slug));
+
+        $this->container->get('app_admin.services.data_manager')->removeObject($category, $em, $slug);
+        $em->flush();
 
         return $this->redirect($this->generateUrl('panch_agema_admin_category_list'));
     }
