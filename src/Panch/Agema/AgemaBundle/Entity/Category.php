@@ -4,7 +4,6 @@ namespace Panch\Agema\AgemaBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
-use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -51,11 +50,6 @@ class Category
      */
     private $slug;
 
-
-//    public function __construct()
-//    {
-//        $this->product = new ArrayCollection();
-//    }
 
     /**
      * Get id
