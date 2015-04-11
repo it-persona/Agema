@@ -86,7 +86,7 @@ class CategoryController extends Controller
         $form->handleRequest($request);
 
         if ($request->isMethod('POST')) {
-            if ($form->isValid() && $data == !null) {
+            if ($form->isValid()) {
                 $this->get('app_admin.services.data_manager')->updateObject($category, $data);
                 $this->get('doctrine.orm.entity_manager')->flush();
 
