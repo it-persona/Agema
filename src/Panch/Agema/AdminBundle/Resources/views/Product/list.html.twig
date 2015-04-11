@@ -47,7 +47,7 @@
                                         <a href="{{ path('panch_agema_agema_product_show', {'slug': product.slug}) }}"><span class="glyphicon glyphicon-eye-open"></span> Show</a>
                                     </li>
                                     <li>
-                                        <a href="#"><span class="glyphicon glyphicon-pencil"></span> Edit</a>
+                                        <a href="{{ path('panch_agema_admin_product_update', {'slug': product.slug}) }}"><span class="glyphicon glyphicon-pencil"></span> Edit</a>
                                     </li>
                                     <li>
                                         <a href="{{ path('panch_agema_admin_product_remove', {'slug': product.slug}) }}"{% if product.deletedAt is not null %} class="highlight-red" {% endif %}>
