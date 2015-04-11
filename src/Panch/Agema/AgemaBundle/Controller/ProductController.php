@@ -49,6 +49,6 @@ class ProductController extends Controller
             throw $this->createNotFoundException('Oops! No products on this category.');
         }
 
-        return ['products' => $products];
+        return [ 'products' => $products ];
     }
 }
