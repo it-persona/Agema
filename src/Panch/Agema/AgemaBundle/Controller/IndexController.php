@@ -38,8 +38,8 @@ class IndexController extends Controller
     public function indexAction()
     {
         $products = $this->getDoctrine()->getManager()->getRepository('PanchAgemaBundle:Product')->findBy(
-            array ('deletedAt' => null),
-            array ('id' => 'DESC'), 3);
+            array('deletedAt' => null),
+            array('id' => 'DESC'), 3);
 
         return [
                 'site_name'     => $this->siteName,
