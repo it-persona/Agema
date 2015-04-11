@@ -24,11 +24,31 @@ class ProductController extends Controller
         $product = $this->getDoctrine()->getManager()->getRepository('PanchAgemaBundle:Product')->findOneBy(array('slug' => $slug));
 
         if (!$product === true || $product->getDeletedAt() != null) {
-            throw $this->createNotFoundException('Opps! This product does not exist.');
+            throw $this->createNotFoundException('Oops! This product does not exist.');
         }
 
         return [
                 'product' => $product
         ];
+    }
+
+    /**
+     * @Template()
+     * @Route("/products/category/{slug}")
+     * @Method("GET")
+     *
+     * @param $slug
+     * @return array
+     */
+    public function listByCategoryAction($slug)
+    {
+        $category = $this->get('doctrine.orm.entity_manager')->getRepository('PanchAgemaBundle:Category')->findBy(array('slug' => $slug));
+        $products = $this->get('doctrine.orm.entity_manager')->getRepository('PanchAgemaBundle:Product')->findBy(array('category' => $category));
+
+        if ($products == null) {
+            throw $this->createNotFoundException('Oops! No products on this category.');
+        }
+
+        return ['products' => $products];
     }
 }
