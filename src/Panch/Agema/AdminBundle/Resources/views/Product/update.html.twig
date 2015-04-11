@@ -1,0 +1,229 @@
+{% extends '@PanchAgemaAdmin/base.html.twig' %}
+
+{% block body %}
+    {% block container %}
+
+        <div class="row">
+            <div class="col-lg-12">
+                <h3 class="page-header">{{ page_title }}</h3>
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+        <!-- /.row -->
+        <div class="row">
+            <form class="form-horizontal" enctype="multipart/form-data" role="form" novalidate method="post">
+                {% block validation_alert %}
+                    {{ include('@PanchAgemaAdmin/includes/_validation_alert.html.twig', { 'errors': errors }) }}
+                {% endblock validation_alert %}
+                <!-- Validate inputs -->
+                <div class="form-group {% if form_errors(form.title) is not empty %} has-error has-feedback {% endif %}">
+                    {{ form_label(form.title, 'Title', {'label_attr': {
+                        'class': 'col-sm-3 control-label',
+                        'for': 'inputError1'
+                    }}) }}
+                    <div class="col-sm-5 input-group-sm" aria-hidden="true">
+                        {{ form_widget(form.title, { 'attr': {
+                            'class': 'form-control',
+                            'id': 'inputError1',
+                            'value': product_data.title,
+                            'aria-describedby': 'inputError1Status'
+                        }}) }}
+                        <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+                    </div>
+                </div>
+                <div class="form-group {% if form_errors(form.shortDescription) is not empty %} has-error has-feedback {% endif %}">
+                    {{ form_label(form.shortDescription, 'Description', {'label_attr': {
+                        'class': 'col-sm-3 control-label',
+                        'for': 'inputError2'
+                    }}) }}
+                    <div class="col-sm-5 input-group-sm" aria-hidden="true">
+                        {{ form_widget(form.shortDescription, { 'attr': {
+                            'class': 'form-control',
+                            'id': 'inputError2',
+                            'value': product_data.shortDescription,
+                            'aria-describedby': 'inputError2Status'
+                        }}) }}
+                        <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+                    </div>
+                </div>
+                <div class="form-group {% if form_errors(form.colorCorrection) is not empty %} has-error has-feedback {% endif %}">
+                    {{ form_label(form.colorCorrection, 'Color corection', {'label_attr': {
+                        'class': 'col-sm-3 control-label',
+                        'for': 'inputError3'
+                    }}) }}
+                    <div class="col-sm-5 input-group-sm" aria-hidden="true">
+                        {{ form_widget(form.colorCorrection, { 'attr': {
+                            'class': 'form-control',
+                            'id': 'inputError3',
+                            'value': product_data.colorCorrection,
+                            'aria-describedby': 'inputError3Status'
+                        }}) }}
+                        <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+                    </div>
+                </div>
+                <div class="form-group {% if form_errors(form.clearAperture) is not empty %} has-error has-feedback {% endif %}">
+                    {{ form_label(form.clearAperture, 'Clear aperture', {'label_attr': {
+                        'class': 'col-sm-3 control-label',
+                        'for': 'inputError4'
+                    }}) }}
+                    <div class="col-sm-5 input-group-sm" aria-hidden="true">
+                        {{ form_widget(form.clearAperture, { 'attr': {
+                            'class': 'form-control',
+                            'id': 'inputError4',
+                            'value': product_data.clearAperture,
+                            'aria-describedby': 'inputError4Status'
+                        }}) }}
+                        <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+                    </div>
+                </div>
+                <div class="form-group {% if form_errors(form.focalLength) is not empty %} has-error has-feedback {% endif %}">
+                    {{ form_label(form.focalLength, 'Focal length', {'label_attr': {
+                        'class': 'col-sm-3 control-label',
+                        'for': 'inputError5'
+                    }}) }}
+                    <div class="col-sm-5 input-group-sm" aria-hidden="true">
+                        {{ form_widget(form.focalLength, { 'attr': {
+                            'class': 'form-control',
+                            'id': 'inputError5',
+                            'value': product_data.focalLength,
+                            'aria-describedby': 'inputError5Status'
+                        }}) }}
+                        <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+                    </div>
+                </div>
+                <div class="form-group {% if form_errors(form.resolution) is not empty %} has-error has-feedback {% endif %}">
+                    {{ form_label(form.resolution, 'Resolution', {'label_attr': {
+                        'class': 'col-sm-3 control-label',
+                        'for': 'inputError6'
+                    }}) }}
+                    <div class="col-sm-5 input-group-sm" aria-hidden="true">
+                        {{ form_widget(form.resolution, { 'attr': {
+                            'type': 'number',
+                            'class': 'form-control',
+                            'placeholder': '0.00',
+                            'id': 'inputError6',
+                            'value': product_data.resolution,
+                            'aria-describedby': 'inputError6Status'
+                        }}) }}
+                        <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+                    </div>
+                </div>
+                <div class="form-group {% if form_errors(form.magnificationRange) is not empty %} has-error has-feedback {% endif %}">
+                    {{ form_label(form.magnificationRange, 'Magnification range', {'label_attr': {
+                        'class': 'col-sm-3 control-label',
+                        'for': 'inputError7'
+                    }}) }}
+                    <div class="col-sm-5 input-group-sm" aria-hidden="true">
+                        {{ form_widget(form.magnificationRange, { 'attr': {
+                            'class': 'form-control',
+                            'id': 'inputError7',
+                            'value': product_data.magnificationRange,
+                            'aria-describedby': 'inputError7Status'
+                        }}) }}
+                        <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+                    </div>
+                </div>
+                <div class="form-group {% if form_errors(form.limitVisualMagnitude) is not empty %} has-error has-feedback {% endif %}">
+                    {{ form_label(form.limitVisualMagnitude, 'Limit visual magnitude', {'label_attr': {
+                        'class': 'col-sm-3 control-label',
+                        'for': 'inputError8'
+                    }}) }}
+                    <div class="col-sm-5 input-group-sm" aria-hidden="true">
+                        {{ form_widget(form.limitVisualMagnitude, { 'attr': {
+                            'class': 'form-control',
+                            'id': 'inputError8',
+                            'value': product_data.limitVisualMagnitude,
+                            'aria-describedby': 'inputError8Status'
+                        }}) }}
+                        <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+                    </div>
+                </div>
+                <div class="form-group {% if form_errors(form.tube) is not empty %} has-error has-feedback {% endif %}">
+                    {{ form_label(form.tube, 'Tube', {'label_attr': {
+                        'class': 'col-sm-3 control-label',
+                        'for': 'inputError9'
+                    }}) }}
+                    <div class="col-sm-5" aria-hidden="true" style="font-size: 12px;">
+                        {{ form_widget(form.tube, { 'attr': {
+                            'class': 'form-control',
+                            'id': 'inputError9',
+                            'rows': '10',
+                            'style': 'font-size: 12px;',
+                            'aria-describedby': 'inputError9Status'
+                        },
+                            'value': product_data.tube
+                        }) }}
+                        <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+                    </div>
+                </div>
+                <div class="form-group {% if form_errors(form.focuser) is not empty %} has-error has-feedback {% endif %}">
+                    {{ form_label(form.focuser, 'Focuser', {'label_attr': {
+                        'class': 'col-sm-3 control-label',
+                        'for': 'inputError10'
+                    }}) }}
+                    <div class="col-sm-5" aria-hidden="true">
+                        {{ form_widget(form.focuser, { 'attr': {
+                            'class': 'form-control',
+                            'id': 'inputError10',
+                            'rows': '10',
+                            'style': 'font-size: 12px;',
+                            'aria-describedby': 'inputError10Status'
+                        },
+                            'value': product_data.focuser
+                        }) }}
+                        <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+                    </div>
+                </div>
+                <div class="form-group {% if form_errors(form.fieldCorrector) is not empty %} has-error has-feedback {% endif %}">
+                    {{ form_label(form.fieldCorrector, 'Field corrector', {'label_attr': {
+                        'class': 'col-sm-3 control-label',
+                        'for': 'inputError11'
+                    }}) }}
+                    <div class="col-sm-5" aria-hidden="true">
+                        {{ form_widget(form.fieldCorrector, { 'attr': {
+                            'class': 'form-control',
+                            'id': 'inputError11',
+                            'rows': '10',
+                            'style': 'font-size: 12px;',
+                            'aria-describedby': 'inputError11Status'
+                        },
+                            'value': product_data.fieldCorrector,
+                        }) }}
+                        <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+                    </div>
+                </div>
+                <div class="form-group {% if form_errors(form.thumbnail) is not empty %} has-error has-feedback {% endif %}">
+                    {{ form_label(form.thumbnail, 'Preview image', {'label_attr': {
+                        'class': 'col-sm-3 control-label',
+                        'for': 'inputError12'
+                    }}) }}
+                    <div class="col-sm-5 input-group-sm" aria-hidden="true">
+                        {{ form_widget(form.thumbnail, { 'attr': {
+                            'class': 'form-control',
+                            'id': 'inputError12',
+                            'aria-describedby': 'inputError12Status'
+                        },
+                            'data': product_data.thumbnail,
+                        }) }}
+                        <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    {{ form_label(form.category, 'Category', {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+                    <div class="col-sm-5 input-group-sm" aria-hidden="true">
+                        {{ form_widget(form.category, { 'attr':   {
+                            'class': 'form-control',
+                            'value': product_data.category,
+                        }}) }} <br>
+                        <!-- Submit -->
+                        <button type="submit" class="col-sm-12 btn btn-success btn-md">Add Product</button>
+                        {{ form_rest(form) }}
+                    </div>
+                </div>
+                <!-- /Validate inputs -->
+            </form>
+        </div>
+        <!-- /.row -->
+
+    {% endblock container %}
+{% endblock body %}

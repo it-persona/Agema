@@ -74,6 +74,44 @@ class ProductController extends Controller
     }
 
     /**
+     * @Template()
+     * @Route("/admin/products/update={slug}")
+     * @Method(methods={"GET", "POST"})
+     * @param Request $request
+     * @param $slug
+     * @param null $errors
+     * @return array|\Symfony\Component\HttpFoundation\RedirectResponse
+     */
+    public function updateAction(Request $request, $slug, $errors = null)
+    {
+        $data = $this->getDoctrine()->getRepository('PanchAgemaBundle:Product')->findOneBy(array('slug' => $slug));
+
+        $product = new Product();
+
+        $form = $this->createForm(new ProductType(), $product);
+        $form->handleRequest($request);
+
+        if ($request->isMethod('POST')) {
+            if ($form->isValid()) {
+                $this->get('app_admin.services.data_manager')->updateObject($product, $data);
+                $data->setThumbnail($product->getThumbnail());
+
+                $this->get('doctrine.orm.entity_manager')->flush();
+
+                return $this->redirect($this->generateUrl('panch_agema_admin_category_list'));
+            }
+            $errors = $this->get('validator')->validate($product);
+        }
+
+        return [
+            'page_title'    => 'Edit Product',
+            'product_data'  => $data,
+            'form'          => $form->createView(),
+            'errors'        => $errors
+        ];
+    }
+
+    /**
      * This method soft-delete product by slug
      *
      * @Route("/admin/products/remove/{slug}")
