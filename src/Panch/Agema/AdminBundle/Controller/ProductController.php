@@ -98,7 +98,7 @@ class ProductController extends Controller
 
                 $this->get('doctrine.orm.entity_manager')->flush();
 
-                return $this->redirect($this->generateUrl('panch_agema_admin_category_list'));
+                return $this->redirect($this->generateUrl('panch_agema_admin_product_list'));
             }
             $errors = $this->get('validator')->validate($product);
         }
