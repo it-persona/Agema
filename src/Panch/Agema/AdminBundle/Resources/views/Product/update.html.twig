@@ -211,12 +211,12 @@
                 <div class="form-group">
                     {{ form_label(form.category, 'Category', {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
                     <div class="col-sm-5 input-group-sm" aria-hidden="true">
-                        {{ form_widget(form.category, { 'attr':   {
+                        {{ form_widget(form.category, { 'attr': {
                             'class': 'form-control',
                             'value': product_data.category,
                         }}) }} <br>
                         <!-- Submit -->
-                        <button type="submit" class="col-sm-12 btn btn-success btn-md">Add Product</button>
+                        <button type="submit" class="col-sm-12 btn btn-success btn-md">Update Product</button>
                         {{ form_rest(form) }}
                     </div>
                 </div>
