@@ -9,9 +9,5 @@ AGEMA OPTICS it is company founded by Eduard Trygubov (Ukraine) and based in USA
 Repository description
 ==========================
 
-Repository of web-site project for AGEMA OPTICS USA.
-
-Develepment status
-=====================
-
-Front-End development and designing all basic pages on HTML5 & CSS3.
+DEPRECATED
+----------
