@@ -1,0 +1,85 @@
+{% extends '@PanchAgema/base.html.twig' %}
+
+{% block body %}
+    {% block container %}
+            <h2><strong>{{ product.title }}</strong></h2><hr>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="img-thumbnail">
+                            {% if product.thumbnail is null %}
+                                <img src="{{ asset('bundles/panchagema/images/interface/no_image_available.png') }}" height="350" alt="{{ product.title }}" alt="{{ product.title }}" />
+                            {% else %}
+                                <img src="{{ product.thumbnail.path }}" {{ product.thumbnail.height < 300 ? 'height="300"':''}} alt="{{ product.title }}" alt="{{ product.title }}" />
+                            {% endif %}
+                        </div>
+                        <br><br>
+                        <h3><strong>Technical Specifications</strong></h3><hr>
+                        <dl class="dl-horizontal">
+                            <dt>Description:</dt>
+                            <dd>{{ product.shortDescription}}</dd><br>
+
+                            <dt>Color corection:</dt>
+                            <dd>{{ product.colorCorrection }}</dd><br>
+
+                            <dt>Clear aperture:</dt>
+                            <dd>{{ product.clearAperture }}</dd><br>
+
+                            <dt>Focal length:</dt>
+                            <dd>{{ product.focalLength }}</dd><br>
+
+                            <dt>Resolution:</dt>
+                            <dd>{{ product.resolution }}</dd><br>
+
+                            <dt>Magnification range:</dt>
+                            <dd>{{ product.magnificationRange }}</dd><br>
+
+                            <dt>Limit visual magnitude:</dt>
+                            <dd>{{ product.limitVisualMagnitude }}</dd><br>
+
+                            <dt>Tube:</dt>
+                            <dd>{{ product.tube }}</dd><br>
+
+                            <dt>Focuser:</dt>
+                            <dd>{{ product.focuser }}</dd><br>
+
+                            <dt>Field corrector:</dt>
+                            <dd>{{ product.fieldCorrector }}</dd><br>
+
+                            <dt>Category:</dt>
+                            <dd>{{ product.category }}</dd><br>
+                        </dl>
+                        <h4><strong>Accessories</strong></h4><hr>
+                        <div class="row">
+                            <div class="col-sm-12 left" style="padding: 0; margin: 0;">
+                                <div class="col-sm-4 left">
+                                    {% if product.thumbnail is null %}
+                                        <img src="{{ asset('bundles/panchagema/images/interface/no_product_image.jpg') }}" width="155" alt="{{ product.title }}" alt="{{ product.title }}" />
+                                    {% else %}
+                                        <img src="{{ product.thumbnail.path }}" {{ product.thumbnail.width > 155 ? 'width="155"':''}} alt="{{ product.title }}" alt="{{ product.title }}" />
+                                    {% endif %}
+                                </div>
+                                <div class="col-sm-4 left">
+                                    {% if product.thumbnail is null %}
+                                        <img src="{{ asset('bundles/panchagema/images/interface/no_product_image.jpg') }}" width="155" alt="{{ product.title }}" alt="{{ product.title }}" />
+                                    {% else %}
+                                        <img src="{{ product.thumbnail.path }}" {{ product.thumbnail.width > 155 ? 'width="155"':''}} alt="{{ product.title }}" alt="{{ product.title }}" />
+                                    {% endif %}
+                                </div>
+                                <div class="col-sm-4 left">
+                                    {% if product.thumbnail is null %}
+                                        <img src="{{ asset('bundles/panchagema/images/interface/no_product_image.jpg') }}" width="155" alt="{{ product.title }}" alt="{{ product.title }}" />
+                                    {% else %}
+                                        <img src="{{ product.thumbnail.path }}" {{ product.thumbnail.width > 155 ? 'width="155"':''}} alt="{{ product.title }}" alt="{{ product.title }}" />
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <p>Second column content...</p>
+                    </div>
+
+                </div>
+    {% endblock container %}
+{% endblock body %}

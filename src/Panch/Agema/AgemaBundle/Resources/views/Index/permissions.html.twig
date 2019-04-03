@@ -1,0 +1,33 @@
+{% block permissions %}
+
+<div class="sign-in" style="font-size: 10px; color: #4d4d4d">
+    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+        {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }}
+        <a href="{{ path('fos_user_security_logout') }}">
+            <button id="btn-control-panel" title="{{ 'layout.logout'|trans({}, 'FOSUserBundle') }}" name="btn-control-panel" type="button" class="btn btn-primary navbar-btn" data-toggle="modal" data-target="#loginDialog">
+                <span class="glyphicon glyphicon-log-in"></span>
+            </button>
+        </a><br>
+        {% for role in user_roles %}
+            {% if role == 'ROLE_SUPER_ADMIN' %}
+                <span style="color: darkgreen; font-weight: bold; font-size: 10px;">{{ role }}</span>
+            {% else %}
+                <span style="color: #0000bb; font-weight: bold; font-size: 10px;">{{ role }}</span>
+            {% endif %}
+        {% endfor %}
+    {% else %}
+        <strong style="color: red;">NOT_AUTHORIZE_USER</strong>
+        <a href="{{ path('fos_user_security_login') }}">
+            <button id="btn-control-panel" title="{{ 'layout.login'|trans({}, 'FOSUserBundle') }}" name="btn-control-panel" type="button" class="btn btn-primary navbar-btn" data-toggle="modal" data-target="#loginDialog">
+                <span class="glyphicon glyphicon-log-in"></span>
+            </button>
+        </a>
+    {% endif %}
+</div>
+<script>
+    function toggleBtnControlPanel() {
+        $('#btn-control-panel').toggle('fast');
+    }
+</script>
+
+{% endblock %}

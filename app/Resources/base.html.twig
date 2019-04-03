@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>{% block title %}Default Page Title Homepage{% endblock %}</title>
+    {% block stylesheets %}
+        <link href="{{ asset('bundles/app/assets/css/style.css') }}" type="text/css" rel="stylesheet" />
+    {% endblock %}
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+</head>
+<body>
+    {#{% block nav %}{% endblock nav %}#}
+    <div id="site-content">
+        {% block container %}{% endblock container%}
+        <div id="footer"></div>
+    </div>
+
+    {% block javascripts %}
+        <script src="{{ asset('bundles/app/assets/js/init.js') }}" type="text/javascript"></script>
+    {% endblock %}
+
+</body>
+</html>

@@ -1,0 +1,12 @@
+{% extends "@PanchAgema/FOSUserBundle/layout_alt.html.twig" %}
+
+{% block fos_user_content %}
+    <div class="row">
+        <div class="col-lg-12">
+            <h3 class="page-header">{{ page_title|title }}</h3>
+        </div>
+        <div class="col-sm-6 center-block" style="float: none;">
+            {% include '@PanchAgema/FOSUserBundle/views/Registration/register_content.html.twig' %}
+        </div>
+    </div>
+{% endblock fos_user_content %}

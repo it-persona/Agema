@@ -1,3 +1,6 @@
+[![Build Status](https://scrutinizer-ci.com/g/it-persona/Agema/badges/build.png?b=dev)](https://scrutinizer-ci.com/g/it-persona/Agema/build-status/dev)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/it-persona/Agema/badges/quality-score.png?b=dev)](https://scrutinizer-ci.com/g/it-persona/Agema/?branch=dev)
+
 Company description
 ======================
 
@@ -6,9 +9,5 @@ AGEMA OPTICS it is company founded by Eduard Trygubov (Ukraine) and based in USA
 Repository description
 ==========================
 
-Repository of web-site project for AGEMA OPTICS USA.
-
-Develepment status
-=====================
-
-Front-End development and designing all basic pages on HTML5 & CSS3.
+DEPRECATED
+----------

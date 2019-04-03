@@ -1,0 +1,45 @@
+{% extends '@PanchAgemaAdmin/base.html.twig' %}
+
+{% block body %}
+    {% block container %}
+
+        <div class="row">
+            <div class="col-lg-12">
+                <h3 class="page-header">{{ page_title }}</h3>
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+        <!-- /.row -->
+        <div class="row">
+            <form class="form-horizontal" role="form" novalidate method="post">
+                {% block validation_alert %}
+                    {{ include('@PanchAgemaAdmin/includes/_validation_alert.html.twig', { 'errors': errors }) }}
+                {% endblock validation_alert %}
+                <!-- Validate inputs -->
+                <div class="form-group {% if errors is not empty %} has-error has-feedback {% endif %}">
+                    {{ form_label(form.category_name, 'Category name', {'label_attr': {
+                        'class': 'col-sm-3 control-label',
+                        'for': 'inputError2'
+                    }}) }}
+                    <div class="col-sm-5 input-group-sm">
+                        {{ form_widget(form.category_name, { 'attr': {
+                            'class': 'form-control',
+                            'id': 'inputError2',
+                            'value': category_name,
+                            'aria-describedby': 'inputError1Status'
+                        }}) }}
+                        <span class="glyphicon glyphicon-remove form-control-feedback"></span>
+                        <span id="inputError2Status" class="sr-only">(error)</span> <br>
+                        <!-- Submit -->
+                        <button type="submit" class="col-sm-12 btn btn-success btn-md">Update Category</button>
+                        {{ form_rest(form) }}
+                    </div>
+                    <!-- /col-sm-5 input-group-sm -->
+                </div>
+                <!-- /form-group -->
+            </form>
+        </div>
+        <!-- /.row -->
+
+    {% endblock container %}
+{% endblock body %}

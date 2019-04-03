@@ -1,0 +1,6 @@
+parameters:
+    app_admin.services.data_manager_class: Panch\Agema\AdminBundle\Services\DataManager
+
+services:
+    app_admin.services.data_manager:
+        class: "%app_admin.services.data_manager_class%"

@@ -1,0 +1,109 @@
+/*
+    Override Bootstrap default styles
+*/
+
+a.dropdown-toggle {
+    color: #666666;
+}
+
+a i.fa {
+    font-size: large;
+}
+
+/*li a i.fa,*/
+a span.glyphicon
+a span.fa {
+    font-size: 15px;
+}
+
+.dropdown-menu li a i.fa {
+    font-size: inherit;
+}
+
+a.dropdown-toggle i.fa.fa-caret-down {
+    font-size: inherit;
+}
+
+.nav>li>a.dropdown-toggle:hover,
+.nav>li>a.dropdown-toggle:focus {
+    color: #3F3F3F;
+}
+
+ul.navbar-left li a {
+    font-size: large;
+    padding-bottom: 13px;
+}
+
+.navbar-brand {
+    background: url("images/admin-logo.png") no-repeat center transparent;
+    background-size: 100px;
+    margin-left: 20px;
+    margin-right: 20px;
+    opacity: 0.6;
+    width: 100px;
+}
+
+.navbar-brand:hover {
+    opacity: 1;
+}
+
+.sidebar ul li a.active::before {
+    content: '• '; /* alt  ► */
+}
+
+#dashboard-link::before {
+    content: '';
+}
+
+.alert-icon-big {
+    font-size: xx-large;
+    float: left;
+    padding-right: 10px;
+}
+
+.lead.alert-title-big {
+    font-size: x-large;
+}
+
+.form-horizontal .has-feedback .form-control-feedback {
+    top: -2px;
+    z-index: 2;
+}
+
+.form-control-feedback {
+    z-index: -1;
+}
+
+.dropdown-menu>li>a>span {
+    color: #333;
+    margin-right: 3px;
+}
+
+.highlight-red,
+.dropdown-menu>li>a.highlight-red,
+.dropdown-menu>li>a.highlight-red>span {
+    color: #c9302c;
+    font-weight: bold;
+}
+
+.large-text {
+    font-size: large;
+}
+
+.highlight-green {
+    color: #449d44;
+}
+
+tr.danger td {
+    color: #c9302c;
+    /*text-decoration: line-through;*/
+}
+
+.table>tbody>tr>td {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.table>thead:first-child>tr:first-child>th {
+    text-align: center;
+}

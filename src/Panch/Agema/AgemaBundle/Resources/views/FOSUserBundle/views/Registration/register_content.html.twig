@@ -1,0 +1,42 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+<form action="{{ path('fos_user_registration_register') }}" {{ form_enctype(form) }} role="form" method="post" class="form-horizontal">
+        <div class="form-group">
+            <div class="input-group">
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-envelope"></span>
+                </span>
+                {{ form_widget(form.email, { 'attr': {'class': 'form-control', 'placeholder': 'example@mail.com' } }) }}
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="input-group">
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-user"></span>
+                </span>
+                {{ form_widget(form.username, { 'attr': {'class': 'form-control', 'placeholder': 'Joe Snow' } }) }}
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="input-group">
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-lock"></span>
+                </span>
+                {{ form_row(form.plainPassword.first, {'label_attr': {'class': 'hidden'}, 'attr': {'class': 'form-control', 'placeholder': 'Enter password'}}) }}
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="input-group">
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-lock"></span>
+                </span>
+                {{ form_row(form.plainPassword.second, {'label_attr': {'class': 'hidden'},'attr': {'class': 'form-control', 'placeholder': 'Repeat password'}}) }}
+            </div>
+        </div>
+    <div class="form-group">
+        <div class="col-sm-12 input-group">
+            <button type="submit" class="col-sm-12 btn btn-success">{{ 'registration.submit'|trans }}</button>
+            {{ form_rest(form) }}
+        </div>
+    </div>
+</form>
